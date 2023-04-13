@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\GroupsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,10 +37,9 @@ Route::post('/school',[SchoolController::class,'store']);
 Route::put('/school/{id}',[SchoolController::class,'update']);
 Route::delete('/school/{id}',[SchoolController::class,'destroy']);
 
-/*
-Route::get('/',[ArticuloController::class,'index']);
-Route::post('/',[ArticuloController::class,'store']);
-Route::put('//{id}',[ArticuloController::class,'update']);
-Route::delete('//{id}',[ArticuloController::class,'destroy']);
 
-*/
+Route::get('/grupo',[GroupsController::class,'index']);
+Route::post('/grupo',[GroupsController::class,'store']);
+Route::put('/grupo/{id}',[GroupsController::class,'update']);
+Route::delete('/grupo/{id}',[GroupsController::class,'destroy']);
+
