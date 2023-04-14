@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\GroupsController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,7 @@ Route::post('/grupo',[GroupsController::class,'store']);
 Route::put('/grupo/{id}',[GroupsController::class,'update']);
 Route::delete('/grupo/{id}',[GroupsController::class,'destroy']);
 
+Route::get('/curso',[CourseController::class,'index']);
+Route::post('/curso',[CourseController::class,'store']);
+Route::put('/curso/{id}',[CourseController::class,'update']);
+Route::delete('/curso/{id}',[CourseController::class,'destroy']);
