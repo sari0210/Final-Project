@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,8 @@ Route::get('/curso',[CourseController::class,'index']);
 Route::post('/curso',[CourseController::class,'store']);
 Route::put('/curso/{id}',[CourseController::class,'update']);
 Route::delete('/curso/{id}',[CourseController::class,'destroy']);
+
+Route::get('/admin',[AdminController::class,'index']);
+Route::post('/admin',[AdminController::class,'store']);
+Route::put('/admin/{id}',[AdminController::class,'update']);
+Route::delete('/admin/{id}',[AdminController::class,'destroy']);

@@ -84,6 +84,6 @@ class SchoolController extends Controller
     {
         //eliminar datos de nuestra tabla
         School::destroy($id);
-        return "delete succssfully";
+        return "delete successfully";
     }
 }

@@ -15,7 +15,10 @@ class CourseController extends Controller
         //
         $curso = Course::all();
         //cources es el mismo nombre de se pondra para llamar a la vista
+       
         return view("index", ["cursos" => $curso]);
+        
+
     }
 
     /**

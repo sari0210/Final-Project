@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admin;
 
 class AdminController extends Controller
 {
@@ -11,7 +12,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        //TRAER TODOS LOS DATOS 
+        $admin = Admin::all();
+        return $admin;
     }
 
     /**
@@ -27,7 +30,15 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //creamos el objeto para guardarlo
+        $admin = new Admin; 
+        $admin->user = $request->user;
+        $admin->pass = $request->pass;
+        $admin->status = $request->status;
+        //guardar datos en nuestra table
+        $admin->save();
+        return $admin;
+
     }
 
     /**
@@ -51,7 +62,15 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //actualizar datos
+        $admin = Admin::findOrFail($id);
+        $admin->user = $request->user;
+        $admin->pass = $request->pass;
+        $admin->status = $request->status;
+        //guardar datos en nuestra table
+        $admin->save();
+        return $admin;
+
     }
 
     /**
@@ -59,6 +78,9 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //eliminar datos de nuestra tabla 
+        Admin::destroy($id);
+        return "delete successfully";
+        
     }
 }
