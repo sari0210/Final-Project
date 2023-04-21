@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Teacher;
 
 class TeacherController extends Controller
 {
@@ -11,7 +12,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        //TRAER TODOS LOS DATOS DE LAS COLUMNAS TEACHER SELECT * from teacher;
+        $teacher = Teacher::all();
+        return $teacher;
     }
 
     /**
@@ -27,7 +30,16 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // creamos el objeto para guardarlo
+        $teacher = new Teacher;
+        $teacher-> name = $request->name;
+        $teacher-> lastname = $request->lastname;
+        $teacher-> address = $request->address;
+        $teacher-> phone_number = $request->phone_number;
+        $teacher-> groups_id = $request->groups_id;
+        //GUARDAR DATOS EN NUESTRA TABLA
+        $teacher-> save();
+        return $teacher;
     }
 
     /**
@@ -51,7 +63,17 @@ class TeacherController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //buscamos al maestro, si no existe fallamos y no seguimos la ejecucion
+        $teacher = Teacher::findOrFail($id);
+        // ACTUALIZAR LOS DATOS
+        $teacher-> name = $request->name;
+        $teacher-> lastname = $request->lastname;
+        $teacher-> address = $request->address;
+        $teacher-> phone_number = $request->phone_number;
+        $teacher-> groups_id = $request->groups_id;
+        // GUARDAR DATOS EN NUESTRA TABLA
+        $teacher-> save();
+        return $teacher;
     }
 
     /**
@@ -59,6 +81,8 @@ class TeacherController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //eliminar datos de nuestra tabla
+        Teacher::destroy($id);
+        return "delete successfully";
     }
 }
