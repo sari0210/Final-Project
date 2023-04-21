@@ -11,7 +11,9 @@ class HomeworkController extends Controller
      */
     public function index()
     {
-        //
+       //TRAER TODOS LOS DATOS DE LAS COLUMNAS SCHOOL  SELECT * from school;
+       $homework = Homework::all();
+       return $homework;
     }
 
     /**
@@ -27,7 +29,14 @@ class HomeworkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          // creamos el objeto para guardarlo
+       $homework = new Homework;
+       $homework-> status = $request->status;
+       $homework-> student_id = $request->student_id;
+       $homework-> course_id = $request->course_id;
+        //GUARDAR DATOS EN NUESTRA TABLA 
+       $homework-> save();
+       return $homework;
     }
 
     /**
@@ -46,12 +55,20 @@ class HomeworkController extends Controller
         //
     }
 
-    /**
+    /** 
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+       //buscamos la homework si no existe fallamos y no seguimos la ejecucion
+       $homework = Homework::findOrFail($id);
+       // ACTUALIZAR LOS DATOS 
+       $homework-> status = $request->status;
+      $homework-> student_id= $request->student_id;
+      $homework-> course_id = $request->course_id;
+         //GUARDAR DATOS EN NUESTRA TABLA 
+         $homework-> save();
+         return $homework;
     }
 
     /**
@@ -59,6 +76,8 @@ class HomeworkController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+         //eliminar datos de nuestra tabla
+         Homework::destroy($id);
+         return "delete successfully";
     }
 }
