@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Course;
 
-class CourseController extends Controller
+class ViewGroupsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,12 +12,6 @@ class CourseController extends Controller
     public function index()
     {
         //
-        $curso = Course::all();
-        //cources es el mismo nombre de se pondra para llamar a la vista
-       
-        return $curso;
-        
-
     }
 
     /**
@@ -34,13 +27,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        // creamos el objeto para guardarlo
-       $curso = new Course;
-       $curso-> course_name = $request->course_name;
-         //GUARDAR DATOS EN NUESTRA TABLA 
-         $curso-> save();
-         return $curso;
-
+        //
     }
 
     /**
@@ -64,14 +51,7 @@ class CourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //buscamos la escula si no existe fallamos y no seguimos la ejecucion
-       $curso = Course::findOrFail($id);
-     // actualizar datos de la tabla
-       $curso-> course_name = $request->course_name;
-         //GUARDAR DATOS EN NUESTRA TABLA 
-         $curso-> save();
-         return $curso;
-
+        //
     }
 
     /**
@@ -79,8 +59,6 @@ class CourseController extends Controller
      */
     public function destroy(string $id)
     {
-         //eliminar datos de nuestra tabla
-         Course::destroy($id);
-         return "delete succssfully";
+        //
     }
 }
