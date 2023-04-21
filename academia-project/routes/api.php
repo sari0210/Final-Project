@@ -6,6 +6,7 @@ use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 
 /*
@@ -55,6 +56,12 @@ Route::get('/admin',[AdminController::class,'index']);
 Route::post('/admin',[AdminController::class,'store']);
 Route::put('/admin/{id}',[AdminController::class,'update']);
 Route::delete('/admin/{id}',[AdminController::class,'destroy']);
+
+Route::get('/pupil',[StudentController::class,'index']);
+Route::post('/pupil',[StudentController::class,'store']);
+Route::put('/pupil/{id}',[StudentController::class,'update']);
+Route::delete('/pupil/{id}',[StudentController::class,'destroy']);
+
 
 Route::get('/teacher',[TeacherController::class,'index']);
 Route::post('/teacher',[TeacherController::class,'store']);

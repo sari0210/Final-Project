@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Homeworks;
 
 class HomeworkController extends Controller
 {
@@ -12,7 +13,7 @@ class HomeworkController extends Controller
     public function index()
     {
        //TRAER TODOS LOS DATOS DE LAS COLUMNAS SCHOOL  SELECT * from school;
-       $homework = Homework::all();
+       $homework = Homeworks::all();
        return $homework;
     }
 
@@ -30,7 +31,7 @@ class HomeworkController extends Controller
     public function store(Request $request)
     {
           // creamos el objeto para guardarlo
-       $homework = new Homework;
+       $homework = new Homeworks;
        $homework-> status = $request->status;
        $homework-> student_id = $request->student_id;
        $homework-> course_id = $request->course_id;
@@ -61,7 +62,7 @@ class HomeworkController extends Controller
     public function update(Request $request, string $id)
     {
        //buscamos la homework si no existe fallamos y no seguimos la ejecucion
-       $homework = Homework::findOrFail($id);
+       $homework = Homeworks::findOrFail($id);
        // ACTUALIZAR LOS DATOS 
        $homework-> status = $request->status;
       $homework-> student_id= $request->student_id;
@@ -77,7 +78,7 @@ class HomeworkController extends Controller
     public function destroy(string $id)
     {
          //eliminar datos de nuestra tabla
-         Homework::destroy($id);
+         Homeworks::destroy($id);
          return "delete successfully";
     }
 }
