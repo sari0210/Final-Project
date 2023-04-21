@@ -34,10 +34,10 @@ class StudentController extends Controller
     {
         // creamos el objeto para guardarlo
        $pupil = new Student;
-       $pupil-> pupil_name = $request->pupil_name;
-       $pupil-> pupil_lastname = $request->pupil_lastname;
-       $pupil-> pupil_age = $request->pupil_age;
-       $pupil-> pupil_address = $request->pupil_address;
+       $pupil-> name = $request->name;
+       $pupil-> lastname = $request->lastname;
+       $pupil-> age = $request->age;
+       $pupil-> address = $request->address;
        $pupil-> responsible_name = $request->responsible_name;
        $pupil-> phone_number = $request->phone_number;
        $pupil-> groups_id = $request->groups_id;
@@ -72,11 +72,11 @@ class StudentController extends Controller
         //buscamos los datos del estudiante si no existe fallamos y no seguimos la ejecucion
        $pupil = Student::findOrFail($id);
        // actualizar datos de la tabla
-       $pupil-> pupil_name = $request->pupil_name;
-       $pupil-> pupil_lastname = $request->pupil_lastname;
-       $pupil-> pupil_age = $request->pupil_age;
-       $pupil-> pupil_address = $request->pupil_address;
-       $pupil-> responsible_name = $request->responsible_name;
+       $pupil-> name = $request->name;
+       $pupil-> lastname = $request->lastname;
+       $pupil-> age = $request->age;
+       $pupil-> address = $request->address;
+       $pupil-> name = $request->name;
        $pupil-> phone_number = $request->phone_number;
        $pupil-> groups_id = $request->groups_id;
        $pupil-> school_id = $request->school_id;
