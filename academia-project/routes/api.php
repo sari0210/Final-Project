@@ -6,6 +6,7 @@ use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\GroupsController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeworkController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 
@@ -46,6 +47,11 @@ Route::get('/grupo',[GroupsController::class,'index']);
 Route::post('/grupo',[GroupsController::class,'store']);
 Route::put('/grupo/{id}',[GroupsController::class,'update']);
 Route::delete('/grupo/{id}',[GroupsController::class,'destroy']);
+
+Route::get('/homework',[HomeworkController::class,'index']);
+Route::post('/homework',[HomeworkController::class,'store']);
+Route::put('/homework/{id}',[HomeworkController::class,'update']);
+Route::delete('/homework/{id}',[HomeworkController::class,'destroy']);
 
 Route::get('/curso',[CourseController::class,'index']);
 Route::post('/curso',[CourseController::class,'store']);
