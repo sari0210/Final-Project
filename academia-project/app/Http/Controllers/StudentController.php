@@ -76,7 +76,7 @@ class StudentController extends Controller
        $pupil-> lastname = $request->lastname;
        $pupil-> age = $request->age;
        $pupil-> address = $request->address;
-       $pupil-> name = $request->name;
+       $pupil-> responsible_name = $request->responsible_name;
        $pupil-> phone_number = $request->phone_number;
        $pupil-> groups_id = $request->groups_id;
        $pupil-> school_id = $request->school_id;
