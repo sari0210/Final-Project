@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeworkController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\InscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +74,9 @@ Route::get('/teacher',[TeacherController::class,'index']);
 Route::post('/teacher',[TeacherController::class,'store']);
 Route::put('/teacher/{id}',[TeacherController::class,'update']);
 Route::delete('/teacher/{id}',[TeacherController::class,'destroy']);
+
+//CONEXCION PARA INSCRPTIONS TABLE
+Route::get('/inscrip',[InscriptionController::class,'index']);
+Route::post('/inscrip',[InscriptionController::class,'store']);
+Route::put('/inscrip/{id}',[InscriptionController::class,'update']);
+Route::delete('/inscrip/{id}',[InscriptionController::class,'destroy']);

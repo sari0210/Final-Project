@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Inscription;
 
 class InscriptionController extends Controller
 {
@@ -12,6 +13,8 @@ class InscriptionController extends Controller
     public function index()
     {
         //
+        $inscrip =Inscription::all();
+        return $inscrip;
     }
 
     /**
@@ -27,7 +30,15 @@ class InscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //creamos un nuevo insert
+        $inscrip =new Inscription;
+        $inscrip->course_id = $request->course_id;
+        $inscrip->student_id = $request->student_id;
+        $inscrip->teacher_id = $request->teacher_id;
+        $inscrip->inscrip_date = $request->inscrip_date;
+        //GUARDAR DATOS 
+        $inscrip-> save();
+         return $inscrip;
     }
 
     /**
@@ -52,6 +63,14 @@ class InscriptionController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $inscrip = Inscription::findOrFail($id);
+        $inscrip->course_id = $request->course_id;
+        $inscrip->student_id = $request->student_id;
+        $inscrip->teacher_id = $request->teacher_id;
+        $inscrip->inscrip_date = $request->inscrip_date;
+        //GUARDAR DATOS 
+        $inscrip-> save();
+         return $inscrip;
     }
 
     /**
@@ -60,5 +79,7 @@ class InscriptionController extends Controller
     public function destroy(string $id)
     {
         //
+        Inscription::destroy($id);
+        return "delete successfully";
     }
 }
