@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\Controllers\ViewStudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/cursos', [CourseController:: class, "index"]);
+Route::get('/pupil', [ViewStudentController:: class, "index"]);
 
 
 
