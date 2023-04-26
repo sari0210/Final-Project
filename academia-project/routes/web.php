@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\Controllers\ViewStudentController;
+use App\Http\Controllers\ViewCourseController;
+use App\Http\Controllers\ViewStudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +18,18 @@ use App\Http\Controllers\Controllers\ViewStudentController;
 Route::get('/', function () {
     return view('welcome');
 });
+ 
+//rutas para CURSOS
 
-Route::get('/cursos', [CourseController:: class, "index"]);
-Route::get('/pupil', [ViewStudentController:: class, "index"]);
+Route ::get('/cursos', [ViewCourseController:: class, "index"]);
+Route :: get("/cursos/create" , [ViewCourseController:: class, "create"]);
+Route :: post("/cursos" , [ViewCourseController:: class, "store"]);
+Route :: get("/cursos/{id}" , [ViewCourseController:: class, "edit"]);
+Route :: put("/cursos/{id}" , [ViewCourseController:: class, "update"]);
+Route :: delete("/cursos/{id}" , [ViewCourseController:: class, "destroy"]);
+
+//RUTAS PARA ESTUDIANTES
+Route::get('/estudiantes', [ViewStudentController:: class, "index"]);
 
 
 

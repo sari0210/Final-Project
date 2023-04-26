@@ -9,7 +9,10 @@
 <body>
     <h1>Hola 
 
-    
+        @foreach ($estudiantes as $estudiantes)
+        <h3>{{$estudiantes->name}}</h3>
+    @endforeach
+ 
     </h1>
 </body>
 </html>

@@ -8,13 +8,7 @@
 </head>
 <body>
     <h1>
-        Proyecto academia
-
-        @foreach ($cursos as $cursos)
-            <h3>{{$cursos->course_name}}</h3>
-        @endforeach
-     
-
+        
     </h1>
 </body>
 </html>

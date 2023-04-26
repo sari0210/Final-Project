@@ -13,8 +13,8 @@ class ViewStudentController extends Controller
     public function index()
     {
         //
-        $pupil= Student ::all();
-      return view('index', ['estudiantes'=> $pupil]);
+        $pupil= Student::all();
+      return view('students', ['estudiantes'=> $pupil]);
     }
 
     /**

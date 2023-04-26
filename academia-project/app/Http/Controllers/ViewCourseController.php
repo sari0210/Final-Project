@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Course;
 
 class ViewCourseController extends Controller
 {
@@ -12,6 +13,8 @@ class ViewCourseController extends Controller
     public function index()
     {
         //
+        $curso = Course::all();
+        return view("course.course" , ["cursos" =>$curso]);
     }
 
     /**
@@ -19,7 +22,8 @@ class ViewCourseController extends Controller
      */
     public function create()
     {
-        //
+        // crear un nuevo curso 
+        return view('course.createcourse');
     }
 
     /**
@@ -27,7 +31,18 @@ class ViewCourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 
+       $curso = new Course;
+       $curso-> course_name = $request->course_name;
+       //GUARDAR DATOS EN NUESTRA TABLA 
+       if($curso != null){
+        $curso-> save();
+        return redirect("cursos");
+       }else {
+        return "error on save";
+       }
+      
+
     }
 
     /**
@@ -43,7 +58,9 @@ class ViewCourseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // para editar
+        $curso = Course::find("$id");
+        return view("course.course" , ["cursos" =>$curso]);
     }
 
     /**
@@ -52,6 +69,17 @@ class ViewCourseController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $curso = Course::findOrFail($id);
+       $curso-> course_name = $request->course_name;
+       //GUARDAR DATOS EN NUESTRA TABLA 
+       if($curso != null){
+        $curso-> save();
+        return redirect("cursos");
+       }else {
+        return "error on save";
+       }
+
+
     }
 
     /**
@@ -59,6 +87,9 @@ class ViewCourseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //eliminar
+        Course::destroy($id);
+        return redirect("cursos");
+
     }
 }
