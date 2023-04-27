@@ -11,6 +11,9 @@
 
         @foreach ($estudiantes as $estudiantes)
         <h3>{{$estudiantes->name}}</h3>
+        <h3>{{$estudiantes->lastname}}</h3>
+        <h3>{{$estudiantes->age}}</h3>
+        <h3>{{$estudiantes->address}}</h3>
     @endforeach
  
     </h1>
