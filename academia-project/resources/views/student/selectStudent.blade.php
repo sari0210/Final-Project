@@ -16,15 +16,24 @@
       </tr>
     </thead>
     <tbody>
-    @foreach  ($pupil as $item)
+    @foreach  ($estudiantes as $item)
       <tr>
         
       
         <th scope="row">{{$item->id}}</th> 
-        <td>{{$item->name}}</td>
+        <td style="">{{$item->name}}</td>
+        <td>{{$item->lastname}}</td>
+        <td>{{$item->age}}</td>
+        <td style="">{{$item->address}}</td>
+        <td style="">{{$item->responsible_name}}</td>
+        <td style="">{{$item->phone_number}}</td>
+        <td style="">{{$item->groups_id}}</td>
+        <td style="">{{$item->school_id}}</td>
+        
       
-        <td><a href="{{url('pupil/'.$item->id)}}" class="btn btn-warning">Edit</a>
-           <form action="{{url('pupil/'.$item->id)}}" method="post">
+        <td><a href="{{url('estudiantes/'.$item->id)}}" class="btn btn-warning">Edit</a>
+           <form action="{{url('estudiantes/'.$item->id)}}" method="post">
+           
             @csrf 
             @method("Delete")
             <button class="btn btn-danger" type="submit">Delete</button>
@@ -35,7 +44,7 @@
     </tbody>
   </table>
   <div>
-    <a href="{{url('pupil/create')}}" values="Add Student" class="btn btn-success"> Add Student</a>
+    <a href="{{url('estudiantes/create')}}" values="Add Student" class="btn btn-success"> Add Student</a>
 
   </div>
     @endsection

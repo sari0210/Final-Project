@@ -15,7 +15,7 @@ class ViewStudentController extends Controller
     {
         //
         $pupil= Student::all();
-      return view("student.selectStudent", ['estudiantes'=> $pupil]);
+      return view("student.selectStudent", ["estudiantes"=> $pupil]);
      
     }
 
@@ -46,7 +46,7 @@ class ViewStudentController extends Controller
         //GUARDAR DATOS EN NUESTRA TABLA 
         if($pupil != null){
          $pupil-> save();
-         return redirect("pupil");
+         return redirect("estudiantes");
         }else {
          return "error on save";
         }
@@ -87,7 +87,7 @@ class ViewStudentController extends Controller
         $pupil-> school_id = $request->post("school_id");
         if($pupil != null){
             $pupil-> update();
-            return redirect("pupil");
+            return redirect("estudiantes");
            }else {
             return "error on save";
            }
