@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Illuminate\Support\Facades\Log;
 
 class ViewStudentController extends Controller
 {
@@ -14,7 +15,8 @@ class ViewStudentController extends Controller
     {
         //
         $pupil= Student::all();
-      return view('students', ['estudiantes'=> $pupil]);
+      return view("student.selectStudent", ['estudiantes'=> $pupil]);
+     
     }
 
     /**
@@ -23,6 +25,7 @@ class ViewStudentController extends Controller
     public function create()
     {
         //
+        return view('student.createStudent');
     }
 
     /**
@@ -31,6 +34,22 @@ class ViewStudentController extends Controller
     public function store(Request $request)
     {
         //
+        $pupil = new Student;
+        $pupil-> name = $request->name;
+        $pupil-> lastname = $request->lastname;
+        $pupil-> age = $request->age;
+        $pupil-> address = $request->address;
+        $pupil-> responsible_name = $request->responsible_name;
+        $pupil-> phone_number = $request->phone_number;
+        $pupil-> groups_id = $request->groups_id;
+        $pupil-> school_id = $request->school_id;
+        //GUARDAR DATOS EN NUESTRA TABLA 
+        if($pupil != null){
+         $pupil-> save();
+         return redirect("pupil");
+        }else {
+         return "error on save";
+        }
     }
 
     /**
@@ -47,6 +66,8 @@ class ViewStudentController extends Controller
     public function edit(string $id)
     {
         //
+        $pupil = Student::find("$id");
+        return view("student.editStudent",["estudiantes"=>$pupil]);
     }
 
     /**
@@ -55,6 +76,21 @@ class ViewStudentController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $pupil =Student::find($id);
+        $pupil-> name = $request->post("name");
+        $pupil-> lastname = $request-> post ("lastname");
+        $pupil-> age = $request->post("age");
+        $pupil-> address = $request->post("address");
+        $pupil-> responsible_name = $request->post("responsible_name");
+        $pupil-> phone_number = $request->post("phone_number");
+        $pupil-> groups_id = $request->post("groups_id");
+        $pupil-> school_id = $request->post("school_id");
+        if($pupil != null){
+            $pupil-> update();
+            return redirect("pupil");
+           }else {
+            return "error on save";
+           }
     }
 
     /**
@@ -63,5 +99,14 @@ class ViewStudentController extends Controller
     public function destroy(string $id)
     {
         //
+        try{
+            $pupil = Student::where("id","=",$id)->delete();
+            return redirect("pupil");
+        } catch (\Exception $e) {
+            // Manejo de la excepción
+            Log::error('Error al actualizar el usuario: ' . $e->getMessage());
+            return response()->json(['error' => 'No se puede eliminar .'], 500);
+            
+        };
     }
 }
