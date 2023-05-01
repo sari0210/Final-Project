@@ -25,7 +25,7 @@ Route ::get('/cursos', [ViewCourseController:: class, "index"]);
 Route :: get("/cursos/create" , [ViewCourseController:: class, "create"]);
 Route :: post("/cursos" , [ViewCourseController:: class, "store"]);
 Route :: get("/cursos/{id}" , [ViewCourseController:: class, "edit"]);
-Route :: put("/cursos/{id}" , [ViewCourseController:: class, "update"]);
+Route :: put("/update/{id}" , [ViewCourseController:: class, "update"]);
 Route :: delete("/cursos/{id}" , [ViewCourseController:: class, "destroy"]);
 
 //RUTAS PARA ESTUDIANTES

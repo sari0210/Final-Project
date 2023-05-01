@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use Illuminate\Support\Facades\Log;
 
 class ViewCourseController extends Controller
 {
@@ -13,8 +14,8 @@ class ViewCourseController extends Controller
     public function index()
     {
         //
-        $curso = Course::all();
-        return view("course.course" , ["cursos" =>$curso]);
+        $cursos = Course::all();
+        return view("course.selectcourse" , ["cursos" =>$cursos]);
     }
 
     /**
@@ -32,11 +33,11 @@ class ViewCourseController extends Controller
     public function store(Request $request)
     {
         // 
-       $curso = new Course;
-       $curso-> course_name = $request->course_name;
+       $cursos = new Course;
+       $cursos-> course_name = $request->course_name;
        //GUARDAR DATOS EN NUESTRA TABLA 
-       if($curso != null){
-        $curso-> save();
+       if($cursos != null){
+        $cursos-> save();
         return redirect("cursos");
        }else {
         return "error on save";
@@ -56,24 +57,24 @@ class ViewCourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         // para editar
         $curso = Course::find("$id");
-        return view("course.course" , ["cursos" =>$curso]);
+        return view("course.editcourse" , ["curso" =>$curso]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
         //
-        $curso = Course::findOrFail($id);
-       $curso-> course_name = $request->course_name;
+        $curso = Course::find($id);
+       $curso-> course_name = $request->post("course_name");
        //GUARDAR DATOS EN NUESTRA TABLA 
        if($curso != null){
-        $curso-> save();
+        $curso-> update();
         return redirect("cursos");
        }else {
         return "error on save";
@@ -85,11 +86,21 @@ class ViewCourseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //eliminar
-        Course::destroy($id);
-        return redirect("cursos");
-
+        //$curso = Course::where("id","=",$id)->delete();
+        //return redirect("cursos");
+         
+          try{
+            $curso = Course::where("id","=",$id)->delete();
+            return redirect("cursos");
+        } catch (\Exception $e) {
+            // Manejo de la excepción
+            Log::error('Error al actualizar el usuario: ' . $e->getMessage());
+            return response()->json(['error' => 'No se puede eliminar .'], 500);
+            
+        };
+         
     }
 }
