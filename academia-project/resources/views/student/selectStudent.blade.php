@@ -21,14 +21,14 @@
         
       
         <th scope="row">{{$item->id}}</th> 
-        <td style="">{{$item->name}}</td>
+        <td >{{$item->name}}</td>
         <td>{{$item->lastname}}</td>
         <td>{{$item->age}}</td>
-        <td style="">{{$item->address}}</td>
-        <td style="">{{$item->responsible_name}}</td>
-        <td style="">{{$item->phone_number}}</td>
-        <td style="">{{$item->groups_id}}</td>
-        <td style="">{{$item->school_id}}</td>
+        <td >{{$item->address}}</td>
+        <td>{{$item->responsible_name}}</td>
+        <td >{{$item->phone_number}}</td>
+        <td >{{$item->groups_id}}</td>
+        <td >{{$item->school_id}}</td>
         
       
         <td><a href="{{url('estudiantes/'.$item->id)}}" class="btn btn-warning">Edit</a>

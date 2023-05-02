@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewCourseController;
 use App\Http\Controllers\ViewStudentController;
+use App\Http\Controllers\ViewGroupsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,13 @@ Route :: post("/estudiantes" , [ViewStudentController:: class, "store"]);
 Route :: get("/estudiantes/{id}" , [ViewStudentController:: class, "edit"]);
 Route :: put("/update/{id}" , [ViewStudentController:: class, "update"]);
 Route :: delete("estudiantes/{id}" , [ViewStudentController:: class, "destroy"]);
+
+Route::get('/grupos', [ViewGroupsController:: class, "index"]);
+Route :: get('/grupos/create', [ViewGroupsController:: class, "create"]);
+Route :: post("/grupos" , [ViewGroupsController:: class, "store"]);
+Route :: get("/grupos/{id}" , [ViewGroupsController:: class, "edit"]);
+Route :: put("/update/{id}" , [ViewGroupsController:: class, "update"]);
+Route :: delete("grupos/{id}" , [ViewGroupsController:: class, "destroy"]);
 
 
 

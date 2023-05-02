@@ -77,7 +77,7 @@ class ViewStudentController extends Controller
     {
         //
         $pupil =Student::find($id);
-        $pupil-> name = $request-> post("name");
+        $pupil-> name = $request-> post('name');
         $pupil-> lastname = $request-> post ("lastname");
         $pupil-> age = $request->post("age");
         $pupil-> address = $request->post("address");
