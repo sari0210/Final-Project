@@ -2,14 +2,14 @@
 @section('content')
 
 <div class="card">
-    <div class="card-header">Edit Cursos</div>
+    <div class="card-header">Edit Estudiantes</div>
     <div class="card-body">
         <form action="{{url('update',$estudiantes->id) }}" method="post">
            
             @method('PUT')
             @csrf
             <label for="" class="form-label">Name</label>
-            <input type="text" name="name" id="name" class="form-control" value="{{ $estudiantes->name}}">
+            <input type="text" name="-name" id="name" class="form-control" value="{{ $estudiantes->name}}">
             <label for="" class="form-label">Lastname</label>
             <input type="text" name="lastname" id="lastname" class="form-control" value="{{ $estudiantes->lastname}}">
             <label for="" class="form-label">Age</label>
