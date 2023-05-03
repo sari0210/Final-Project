@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header">Edit Grupos</div>
     <div class="card-body">
-        <form action="{{url('update',$grupos->id) }}" method="post">
+        <form action="{{url('updateGrupo',$grupos->id) }}" method="post">
            
             @method('PUT')
             @csrf

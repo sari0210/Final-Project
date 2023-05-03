@@ -32,7 +32,7 @@
     </tbody>
   </table>
   <div>
-    <a href="{{url('grupos/create')}}" values="Add Group" class="btn btn-success"> Add Student</a>
+    <a href="{{url('grupos/create')}}" values="Add Group" class="btn btn-success"> Add Grupo</a>
   </div>
     @endsection
 

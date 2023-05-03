@@ -34,7 +34,7 @@ Route::get('/estudiantes', [ViewStudentController:: class, "index"]);
 Route :: get('/estudiantes/create', [ViewStudentController:: class, "create"]);
 Route :: post("/estudiantes" , [ViewStudentController:: class, "store"]);
 Route :: get("/estudiantes/{id}" , [ViewStudentController:: class, "edit"]);
-Route :: put("/update/{id}" , [ViewStudentController:: class, "update"]);
+Route :: put("/updateEstudiante/{id}" , [ViewStudentController:: class, "update"]);
 Route :: delete("estudiantes/{id}" , [ViewStudentController:: class, "destroy"]);
 Route :: get("form" , [ViewStudentController:: class, "getForm"]);
 
@@ -43,7 +43,7 @@ Route::get('/grupos', [ViewGroupsController:: class, "index"]);
 Route :: get('/grupos/create', [ViewGroupsController:: class, "create"]);
 Route :: post("/grupos" , [ViewGroupsController:: class, "store"]);
 Route :: get("/grupos/{id}" , [ViewGroupsController:: class, "edit"]);
-Route :: put("/update/{id}" , [ViewGroupsController:: class, "update"]);
+Route :: put("/updateGrupo/{id}" , [ViewGroupsController:: class, "update"]);
 Route :: delete("grupos/{id}" , [ViewGroupsController:: class, "destroy"]);
 
 

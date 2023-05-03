@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header">Edit Estudiantes</div>
     <div class="card-body">
-        <form action="{{url('update',$estudiantes->id) }}" method="post">
+        <form action="{{url('updateEstudiante',estudiantes->id) }}" method="post">
            
             @method('PUT')
             @csrf

@@ -9,7 +9,7 @@
             @csrf
             
             <label for="" class="form-label">Name</label>
-            <input type="text" name="name" id="name" class="form-control">
+            <input type="text" name="groups_name" id="groups_name" class="form-control">
             <input type="submit" value="Add Groups" class="btn btn-success" >
            
         </form>
