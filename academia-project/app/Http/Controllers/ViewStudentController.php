@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Groups;
 use Illuminate\Support\Facades\Log;
 
 class ViewStudentController extends Controller
@@ -18,6 +19,15 @@ class ViewStudentController extends Controller
       return view("student.selectStudent", ["estudiantes"=> $pupil]);
      
     }
+    public function getForm()
+    {
+        //
+        $grupo= Groups::all();
+      return view("student.selectSrudent", ["grupos"=>$grupo]);
+     
+    }
+
+   
 
     /**
      * Show the form for creating a new resource.

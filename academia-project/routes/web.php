@@ -36,6 +36,8 @@ Route :: post("/estudiantes" , [ViewStudentController:: class, "store"]);
 Route :: get("/estudiantes/{id}" , [ViewStudentController:: class, "edit"]);
 Route :: put("/update/{id}" , [ViewStudentController:: class, "update"]);
 Route :: delete("estudiantes/{id}" , [ViewStudentController:: class, "destroy"]);
+Route :: get("form" , [ViewStudentController:: class, "getForm"]);
+
 
 Route::get('/grupos', [ViewGroupsController:: class, "index"]);
 Route :: get('/grupos/create', [ViewGroupsController:: class, "create"]);
