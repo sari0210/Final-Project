@@ -23,7 +23,7 @@ class ViewStudentController extends Controller
     {
         //
         $grupo= Groups::all();
-      return view("student.selectSrudent", ["grupos"=>$grupo]);
+      return view("student.selectStudent", ["grupos"=>$grupo]);
      
     }
 
@@ -45,7 +45,7 @@ class ViewStudentController extends Controller
     {
         //
         $pupil = new Student;
-        $pupil-> name = $request->name;
+        $pupil-> sname = $request->name;
         $pupil-> lastname = $request->lastname;
         $pupil-> age = $request->age;
         $pupil-> address = $request->address;
@@ -86,8 +86,8 @@ class ViewStudentController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $pupil =Student::find($id);
-        $pupil-> name = $request-> post('name');
+        $pupil =Student::find("$id");
+        $pupil-> name = $request-> post("name");
         $pupil-> lastname = $request-> post ("lastname");
         $pupil-> age = $request->post("age");
         $pupil-> address = $request->post("address");

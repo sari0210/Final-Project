@@ -24,8 +24,9 @@
             <label for="">Grupos</label>
             <select name="groups_id" id="groups_id" class="form-control">
                 <option value="">Seleccionar un grupo</option>
-                @foreach  ($grupos as $item)
-                <option >{{$item-> $groups_name}}</option>
+                @foreach  
+                <($grupos as $item)
+                <option value="{{$item->id}}">{{$item-> $groups_name}}</option>
                 @endforeach
             </select>
             <label for="" class="form-label">Group id</label>
