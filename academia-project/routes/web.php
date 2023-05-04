@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewCourseController;
 use App\Http\Controllers\ViewStudentController;
 use App\Http\Controllers\ViewGroupsController;
+use App\Http\Controllers\ViewHomeworkController;
 use App\Http\Controllers\ViewInscriptionController;
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,20 @@ Route :: get("/grupos/{id}" , [ViewGroupsController:: class, "edit"]);
 Route :: put("/updateGrupo/{id}" , [ViewGroupsController:: class, "update"]);
 Route :: delete("grupos/{id}" , [ViewGroupsController:: class, "destroy"]);
 
+Route::get('/tareas', [ViewHomeworkController:: class, "index"]);
+Route :: get('/tareas/create', [ViewHomeworkController:: class, "create"]);
+Route :: post("/tareas" , [ViewHomeworkController:: class, "store"]);
+Route :: get("/tareas/{id}" , [ViewHomeworkController:: class, "edit"]);
+Route :: put("/updateHomework/{id}" , [ViewHomeworkController:: class, "update"]);
+Route :: delete("tareas/{id}" , [ViewHomeworkController:: class, "destroy"]);
+
+Route::get('/maestros', [ViewTeacherController:: class, "index"]);
+Route :: get('/maestros/create', [ViewTeacherController:: class, "create"]);
+Route :: post("/maestros" , [ViewTeacherController:: class, "store"]);
+Route :: get("/maestros/{id}" , [ViewTeacherController:: class, "edit"]);
+Route :: put("/updateMaestros/{id}" , [ViewTeacherController:: class, "update"]);
+Route :: delete("maestros/{id}" , [ViewTeacherController:: class, "destroy"]);
+Route :: get("form" , [ViewTeacherController:: class, "getForm"]);
 //rutas para inscription 
 Route::get('/inscripciones', [ViewInscriptionController:: class, "index"]);
 Route::get('/inscripciones/create', [ViewInscriptionController:: class, "create"]);

@@ -10,9 +10,11 @@ class ViewTeacherController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() 
     {
         //
+        $teacher = Teacher::all();
+        return view("teacher.selectTeacher" , ["maestros" =>$teacher]);
     }
 
     /**
@@ -20,7 +22,8 @@ class ViewTeacherController extends Controller
      */
     public function create()
     {
-        //
+        //crear un nuevo maestro
+        return view('teacher.createTeacher');
     }
 
     /**
@@ -28,7 +31,23 @@ class ViewTeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        // 
+        $teacher = new Teacher;
+        $teacher-> name = $request->name;
+        $teacher-> lastname = $request->lastname;
+        $teacher-> address = $request->address;
+        $teacher-> phone_number = $request->phone_number;
+        $teacher-> groups_id = $request->groups_id;
+        
+        //GUARDAR DATOS EN NUESTRA TABLA 
+        if($teacher != null){
+         $teacher-> save();
+         return redirect("maestros");
+        }else {
+         return "error on save";
+        }
+
     }
 
     /**
@@ -45,6 +64,8 @@ class ViewTeacherController extends Controller
     public function edit(string $id)
     {
         //
+        $teacher = Teacher::find("$id");
+        return view("teacher.editTeacher",["maestros"=>$teacher]);
     }
 
     /**
@@ -53,6 +74,18 @@ class ViewTeacherController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $teacher =Teacher::find("$id");
+        $teacher-> name = $request-> post("name");
+        $teacher-> lastname = $request-> post ("lastname");
+        $teacher-> address = $request->post("address");
+        $teacher-> phone_number = $request->post("phone_number");
+        $teacher-> groups_id = $request->post("groups_id");
+        if($teacher != null){
+            $teacher-> update();
+            return redirect("maestros");
+           }else {
+            return "error on save";
+           }
     }
 
     /**
@@ -61,5 +94,14 @@ class ViewTeacherController extends Controller
     public function destroy(string $id)
     {
         //
+        try{
+            $teacher = Teacher::where("id","=",$id)->delete();
+            return redirect("maestros");
+        } catch (\Exception $e) {
+            // Manejo de la excepción
+            Log::error('Error al actualizar el usuario: ' . $e->getMessage());
+            return response()->json(['error' => 'No se puede eliminar .'], 500);
+            
+        };
     }
 }
