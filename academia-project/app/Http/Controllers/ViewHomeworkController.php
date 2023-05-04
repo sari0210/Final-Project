@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Homeworks;
+use Illuminate\Support\Facades\Log;
 
 class ViewHomeworkController extends Controller
 {
@@ -13,6 +14,10 @@ class ViewHomeworkController extends Controller
     public function index()
     {
         //
+        $homework = Homeworks :: all();
+        return view("homework.selectHomework", ["tareas"=> $homework]);
+        
+        
     }
 
     /**
@@ -21,6 +26,7 @@ class ViewHomeworkController extends Controller
     public function create()
     {
         //
+        return view ("homework.createHomework");
     }
 
     /**
@@ -29,6 +35,17 @@ class ViewHomeworkController extends Controller
     public function store(Request $request)
     {
         //
+        $homework = new Homeworks;
+        $homework->status = $request->status;
+        $homework->student_id = $request->student_id;
+        $homework->course_id= $request->course_id;
+
+        if ($homework != null){
+            $homework-> save();
+            return redirect("tareas");
+        }else{
+            return "error on save";
+        }
     }
 
     /**
@@ -45,6 +62,8 @@ class ViewHomeworkController extends Controller
     public function edit(string $id)
     {
         //
+        $homework = Homeworks::find($id);
+        return view("homework.editHomework",["tareas"=> $homework]);
     }
 
     /**
@@ -53,6 +72,16 @@ class ViewHomeworkController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $homework = Homeworks::find($id);
+        $homework-> status = $request-> post ("status");
+        $homework->student_id = $request->student_id;
+        $homework->course_id= $request->course_id;
+        if($homework!= null){
+            $homework-> update();
+            return redirect("tareas");
+           }else {
+            return "error on save";
+           }
     }
 
     /**
@@ -61,5 +90,14 @@ class ViewHomeworkController extends Controller
     public function destroy(string $id)
     {
         //
+        try{
+            $homework = Homeworks::where("id","=",$id)->delete();
+            return redirect("tareas");
+        } catch (\Exception $e) {
+            // Manejo de la excepción
+            Log::error('Error al actualizar el usuario: ' . $e->getMessage());
+            return response()->json(['error' => 'No se puede eliminar .'], 500);
+            
+        };
     }
 }

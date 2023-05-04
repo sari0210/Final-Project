@@ -1,5 +1,5 @@
 @extends('student.students')
-@extends('group.slectGroup')
+
 @section('content')
 
 
@@ -20,15 +20,6 @@
             <input type="text" name="responsible_name" id="responsible_name" class="form-control">
             <label for="" class="form-label">Phone number</label>
             <input type="text" name="phone_number" id="phone_number" class="form-control">
-
-            <label for="">Grupos</label>
-            <select name="groups_id" id="groups_id" class="form-control">
-                <option value="">Seleccionar un grupo</option>
-                @foreach  
-                <($grupos as $item)
-                <option value="{{$item->id}}">{{$item-> $groups_name}}</option>
-                @endforeach
-            </select>
             <label for="" class="form-label">Group id</label>
             <input type="text" name="groups_id" id="groups_id" class="form-control">
             <label for="" class="form-label">School id</label>

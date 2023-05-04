@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewCourseController;
 use App\Http\Controllers\ViewStudentController;
 use App\Http\Controllers\ViewGroupsController;
+use App\Http\Controllers\ViewHomeworkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,13 @@ Route :: post("/grupos" , [ViewGroupsController:: class, "store"]);
 Route :: get("/grupos/{id}" , [ViewGroupsController:: class, "edit"]);
 Route :: put("/updateGrupo/{id}" , [ViewGroupsController:: class, "update"]);
 Route :: delete("grupos/{id}" , [ViewGroupsController:: class, "destroy"]);
+
+Route::get('/tareas', [ViewHomeworkController:: class, "index"]);
+Route :: get('/tareas/create', [ViewHomeworkController:: class, "create"]);
+Route :: post("/tareas" , [ViewHomeworkController:: class, "store"]);
+Route :: get("/tareas/{id}" , [ViewHomeworkController:: class, "edit"]);
+Route :: put("/updateHomework/{id}" , [ViewHomeworkController:: class, "update"]);
+Route :: delete("tareas/{id}" , [ViewHomeworkController:: class, "destroy"]);
 
 
 

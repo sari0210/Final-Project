@@ -45,7 +45,7 @@ class ViewStudentController extends Controller
     {
         //
         $pupil = new Student;
-        $pupil-> sname = $request->name;
+        $pupil-> name = $request->name;
         $pupil-> lastname = $request->lastname;
         $pupil-> age = $request->age;
         $pupil-> address = $request->address;
