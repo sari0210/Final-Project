@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewCourseController;
 use App\Http\Controllers\ViewStudentController;
 use App\Http\Controllers\ViewGroupsController;
-
+use App\Http\Controllers\ViewInscriptionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +38,7 @@ Route :: put("/updateEstudiante/{id}" , [ViewStudentController:: class, "update"
 Route :: delete("estudiantes/{id}" , [ViewStudentController:: class, "destroy"]);
 Route :: get("form" , [ViewStudentController:: class, "getForm"]);
 
+// rutas para grupo
 
 Route::get('/grupos', [ViewGroupsController:: class, "index"]);
 Route :: get('/grupos/create', [ViewGroupsController:: class, "create"]);
@@ -46,7 +47,9 @@ Route :: get("/grupos/{id}" , [ViewGroupsController:: class, "edit"]);
 Route :: put("/updateGrupo/{id}" , [ViewGroupsController:: class, "update"]);
 Route :: delete("grupos/{id}" , [ViewGroupsController:: class, "destroy"]);
 
-
-
+//rutas para inscription 
+Route::get('/inscripciones', [ViewInscriptionController:: class, "index"]);
+Route::get('/inscripciones/create', [ViewInscriptionController:: class, "create"]);
+Route::post('/inscripciones', [ViewInscriptionController:: class, "store"]);
 
 ?>

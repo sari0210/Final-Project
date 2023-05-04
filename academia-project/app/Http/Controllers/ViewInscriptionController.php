@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inscription;
+use App\Models\Course;
+use App\Models\Student;
+use App\Models\Teacher;
+
 
 class ViewInscriptionController extends Controller
 {
@@ -12,15 +16,41 @@ class ViewInscriptionController extends Controller
      */
     public function index()
     {
-        //
+        //obtener lista de inscripcion 
+        $inscripciones = Inscription::all();
+        return view ("inscription.selectInscription", ["inscripciones" => $inscripciones]);
     }
 
-    /**
+    /*public function getcurso()
+    {
+        //
+        $inscrip_curso = Course::all();
+        return view ("inscription.createInscription", ["inscrip_curso" => $inscrip_curso]);
+    }
+    public function getalumno()
+    {
+        //
+        $inscrip_alumno = Student::all();
+        return view ("inscription.createInscription", ["inscrip_alumno" => $inscrip_alumno]);
+    }
+    public function getmaestro()
+    {
+        //
+        $inscrip_maestro = Teacher::all();
+        return view ("inscription.createInscription", ["inscrip_maestro" => $inscrip_maestro]);
+    }
+
+
      * Show the form for creating a new resource.
      */
     public function create()
     {
         //
+        $inscrip_curso = Course::all();
+        $inscrip_alumno = Student::all();
+        $inscrip_maestro = Teacher::all();
+        return view("inscription.createInscription", array("inscrip_curso" => $inscrip_curso , "inscrip_alumno" => $inscrip_alumno , "inscrip_maestro" => $inscrip_maestro ));
+        
     }
 
     /**
@@ -29,6 +59,19 @@ class ViewInscriptionController extends Controller
     public function store(Request $request)
     {
         //
+        $inscripciones = new Inscription;
+        $inscripciones-> course_id = $request-> course_id;
+        $inscripciones-> student_id = $request-> student_id;
+        $inscripciones-> teacher_id = $request-> teacher_id;
+        $inscripciones-> inscrip_date = $request-> inscrip_date;
+        //guardar datos 
+        if($inscripciones != null){
+            $inscripciones-> save();
+            return redirect("inscripciones");
+           }else {
+            return "error on save";
+           }
+          
     }
 
     /**
