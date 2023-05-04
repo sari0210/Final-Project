@@ -62,9 +62,13 @@ Route :: get("/maestros/{id}" , [ViewTeacherController:: class, "edit"]);
 Route :: put("/updateMaestros/{id}" , [ViewTeacherController:: class, "update"]);
 Route :: delete("maestros/{id}" , [ViewTeacherController:: class, "destroy"]);
 Route :: get("form" , [ViewTeacherController:: class, "getForm"]);
+
 //rutas para inscription 
 Route::get('/inscripciones', [ViewInscriptionController:: class, "index"]);
 Route::get('/inscripciones/create', [ViewInscriptionController:: class, "create"]);
 Route::post('/inscripciones', [ViewInscriptionController:: class, "store"]);
+Route::get('/inscripcion/{id}', [ViewInscriptionController:: class, "edit"]);
+
+Route::delete('/inscripciones/{id}', [ViewInscriptionController:: class, "destroy"]);
 
 ?>

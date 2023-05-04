@@ -7,6 +7,7 @@ use App\Models\Inscription;
 use App\Models\Course;
 use App\Models\Student;
 use App\Models\Teacher;
+use Illuminate\Support\Facades\Log;
 
 
 class ViewInscriptionController extends Controller
@@ -18,7 +19,10 @@ class ViewInscriptionController extends Controller
     {
         //obtener lista de inscripcion 
         $inscripciones = Inscription::all();
-        return view ("inscription.selectInscription", ["inscripciones" => $inscripciones]);
+        $inscrip_curso = Course::all();
+        $inscrip_alumno = Student::all();
+        $inscrip_maestro = Teacher::all();
+        return view ("inscription.selectInscription", array("inscripciones" =>$inscripciones, "inscrip_curso" => $inscrip_curso , "inscrip_alumno" => $inscrip_alumno , "inscrip_maestro" => $inscrip_maestro ));
     }
 
     /*public function getcurso()
@@ -88,6 +92,11 @@ class ViewInscriptionController extends Controller
     public function edit(string $id)
     {
         //
+        $inscrip_curso = Course::all();
+        $inscrip_alumno = Student::all();
+        $inscrip_maestro = Teacher::all();
+        $inscripcion = Inscription::find($id);
+        return view("inscription.editinscription" , array("inscripcion" =>$inscripcion, "inscrip_curso" => $inscrip_curso , "inscrip_alumno" => $inscrip_alumno , "inscrip_maestro" => $inscrip_maestro ) );
     }
 
     /**
@@ -96,6 +105,7 @@ class ViewInscriptionController extends Controller
     public function update(Request $request, string $id)
     {
         //
+
     }
 
     /**
@@ -103,6 +113,11 @@ class ViewInscriptionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //eliminar registro
+        
+            $inscripciones = Inscription::where("id","=",$id)->delete();
+            return redirect("inscripciones");
+      
+         
     }
 }

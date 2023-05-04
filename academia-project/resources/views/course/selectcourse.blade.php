@@ -17,6 +17,7 @@
         <td>{{$item->course_name}}</td>
       
         <td><a href="{{url('cursos/'.$item->id)}}" class="btn btn-warning">Edit</a>
+          
            <form action="{{url('cursos/'.$item->id)}}" method="post">
             @csrf 
             @method("Delete")

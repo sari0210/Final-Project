@@ -17,12 +17,14 @@
         
       
         <th scope="row">{{$item->id}}</th> 
-        <td>{{$item->course_id}}{{$item->course_name}}</td>
+        <td>{{$item->course_id}}</td>
+       
         <td>{{$item->student_id}}</td>
         <td>{{$item->teacher_id}}</td>
         <td>{{$item->inscrip_date}}</td>
       
-        <td><a href="{{url('inscripciones/'.$item->id)}}" class="btn btn-warning">Edit</a>
+        <td><a href="{{url('inscripcion/'.$item->id)}}" class="btn btn-warning">Edit</a>
+
            <form action="{{url('inscripciones/'.$item->id)}}" method="post">
             @csrf 
             @method("Delete")
