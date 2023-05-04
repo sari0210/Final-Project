@@ -54,6 +54,13 @@ Route :: get("/tareas/{id}" , [ViewHomeworkController:: class, "edit"]);
 Route :: put("/updateHomework/{id}" , [ViewHomeworkController:: class, "update"]);
 Route :: delete("tareas/{id}" , [ViewHomeworkController:: class, "destroy"]);
 
+Route::get('/maestros', [ViewTeacherController:: class, "index"]);
+Route :: get('/maestros/create', [ViewTeacherController:: class, "create"]);
+Route :: post("/maestros" , [ViewTeacherController:: class, "store"]);
+Route :: get("/maestros/{id}" , [ViewTeacherController:: class, "edit"]);
+Route :: put("/updateMaestros/{id}" , [ViewTeacherController:: class, "update"]);
+Route :: delete("maestros/{id}" , [ViewTeacherController:: class, "destroy"]);
+Route :: get("form" , [ViewTeacherController:: class, "getForm"]);
 
 
 
