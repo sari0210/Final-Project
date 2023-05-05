@@ -20,7 +20,7 @@ use App\Http\Controllers\ViewSchoolController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
  
 //rutas para CURSOS
