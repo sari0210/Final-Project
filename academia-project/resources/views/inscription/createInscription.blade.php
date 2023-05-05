@@ -22,7 +22,7 @@
                 <select name="student_id" id="" class="form-control">
                 <option value="">Seleccione un estudiante</option>
                 @foreach ($inscrip_alumno as $value2)
-                    <option value={{$value2->id}}>{{$value2->name}}</option>
+                    <option value="{{$value2->id}}">{{$value2->name}}</option>
                 @endforeach
             </select>
                 <br>
@@ -30,7 +30,7 @@
             <select name="teacher_id" id="" class="form-control">
                 <option value="">Seleccione un  maestro</option>
                 @foreach ($inscrip_maestro as $value3)
-                    <option value={{$value3->id}}>{{$value3->name}}</option>
+                    <option value="{{$value3->id}}">{{$value3->name}}</option>
                 @endforeach
             </select>
            <br>
@@ -42,6 +42,7 @@
            <br>
            <br>
             <input type="submit" value="Add Cursos" class="btn btn-success btn-add" >
+            <br><br><br><br>
         </form>
     </div>
 </div>
