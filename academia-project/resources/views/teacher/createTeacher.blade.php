@@ -2,8 +2,9 @@
 
 @section('content')
 
+<link rel="stylesheet" href="{{ asset('css/formularios.css') }}">
 
-<div class="card">
+<div class="card card-formulario">
     <div class="card-header">Add Teacher</div>
     <div class="card-body">
         <form action="{{url('maestros')}}" method="post">
@@ -18,7 +19,7 @@
             <input type="text" name="phone_number" id="phone_number" class="form-control">
             <label for="" class="form-label">Group id</label>
             <input type="text" name="groups_id" id="groups_id" class="form-control">
-            <input type="submit" value="Add Teacher" class="btn btn-success" >
+            <input type="submit" value="Add Teacher" class="btn btn-success btn-add" >
         </form>
     </div>
 </div>

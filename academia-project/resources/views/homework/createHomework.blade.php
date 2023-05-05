@@ -1,8 +1,9 @@
 @extends('homework.homework')
 @section('content_h')
 
+<link rel="stylesheet" href="{{ asset('css/formularios.css') }}">
 
-<div class="card">
+<div class="card card-formulario">
     <div class="card-header">Agregar Tareas</div>
     <div class="card-body">
         <form action="{{url('tareas')}}" method="post">
@@ -17,7 +18,7 @@
             <label for="" class="form-label">Curso</label>
             <input type="text" name="course_id" id="course_id" class="form-control">
 
-            <input type="submit" value="Add Tarea" class="btn btn-success" >
+            <input type="submit" value="Add Tarea" class="btn btn-success btn-add" >
            
         </form>
     </div>

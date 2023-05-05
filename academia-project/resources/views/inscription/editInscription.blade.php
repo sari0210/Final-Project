@@ -2,7 +2,7 @@
 @section('content')
 
 
-<div class="card">
+<div class="card card-formulario">
     <div class="card-header">Edit Inscription</div>
     <div class="card-body">
         <form action="{{url('inscripcion')}}" method="post">
@@ -40,7 +40,7 @@
 
            <br>
            <br>
-            <input type="submit" value="Add Cursos" class="btn btn-success" >
+            <input type="submit" value="Add Cursos" class="btn btn-success btn-add" >
         </form>
     </div>
 </div>

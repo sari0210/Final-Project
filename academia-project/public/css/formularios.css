@@ -1,0 +1,35 @@
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+h5 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+label {
+    margin-top: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.container-fluid {
+    --bs-gutter-x: 0;
+    text-align: center;
+}
+
+.card-formulario {
+    margin: 0 auto;
+    width: 50%;
+    /**background-color: red;**/
+    margin-top: 10px;
+}
+
+.btn-add {
+    margin-top: 20px;
+}
+
+.footer {
+    margin-top: 25px;
+    padding: 30px;
+}

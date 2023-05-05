@@ -1,8 +1,9 @@
 @extends('school.school')
 @section('content_school')
 
+<link rel="stylesheet" href="{{ asset('css/formularios.css') }}">
 
-<div class="card">
+<div class="card card-formulario">
     <div class="card-header">Add Escuela</div>
     <div class="card-body">
         <form action="{{url('escuelas')}}" method="post">
@@ -20,7 +21,7 @@
             <input type="text" name="phone_number" id="phone_number" class="form-control">
 
 
-            <input type="submit" value="Add Cursos" class="btn btn-success" >
+            <input type="submit" value="Add Cursos" class="btn btn-success btn-add" >
         </form>
     </div>
 </div>

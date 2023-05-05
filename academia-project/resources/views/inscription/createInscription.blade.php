@@ -1,8 +1,9 @@
 @extends('inscription.inscription')
 @section('content')
 
+<link rel="stylesheet" href="{{ asset('css/formularios.css') }}">
 
-<div class="card">
+<div class="card card-formulario">
     <div class="card-header">Add Inscription</div>
     <div class="card-body">
         <form action="{{url('inscripciones')}}" method="post">
@@ -40,7 +41,7 @@
 
            <br>
            <br>
-            <input type="submit" value="Add Cursos" class="btn btn-success" >
+            <input type="submit" value="Add Cursos" class="btn btn-success btn-add" >
         </form>
     </div>
 </div>
