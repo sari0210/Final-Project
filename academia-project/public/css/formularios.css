@@ -28,6 +28,10 @@ label {
     margin-top: 20px;
 }
 
+.btn-edicion {
+    margin-top: 10px;
+}
+
 /**Footer**/
 .footer {
     margin-top: 25px;
@@ -35,6 +39,10 @@ label {
     text-align: center;
 }
 
+/** .bg-body-tertiary {
+    --bs-bg-opacity: 5;
+    background-color: rgba(62, 152, 62, 0.45);
+} **/
 
 /** Centrado del navbar **/
 .navbar-nav {
@@ -50,4 +58,9 @@ html, body {
 .content-wrapper {
     min-height: calc(100% - (92px));
     padding-bottom: 100px;
+}
+
+/** Espacio entre el contenido y el titulo **/
+.c-container {
+    margin-top: 25px;
 }

@@ -1,5 +1,6 @@
 @extends('homework.homework')
 @section('content_h')
+<div class="container">
 <table class="table">
     <thead>
 
@@ -23,12 +24,12 @@
         
         
       
-        <td><a href="{{url('tareas/'.$item->id)}}" class="btn btn-warning">Edit</a>
+        <td><a href="{{url('tareas/'.$item->id)}}" class="btn btn-warning btn-edicion">Edit</a>
            <form action="{{url('tareas/'.$item->id)}}" method="post">
            
             @csrf 
             @method("Delete")
-            <button class="btn btn-danger" type="submit">Delete</button>
+            <button class="btn btn-danger btn-edicion" type="submit">Delete</button>
         </form>
      
       </tr>
@@ -38,5 +39,6 @@
   <div>
     <a href="{{url('tareas/create')}}" values="Add Group" class="btn btn-success"> Add Tarea</a>
   </div>
+</div>
     @endsection
 
