@@ -7,6 +7,7 @@ use App\Http\Controllers\ViewGroupsController;
 use App\Http\Controllers\ViewHomeworkController;
 use App\Http\Controllers\ViewInscriptionController;
 use App\Http\Controllers\ViewTeacherController;
+use App\Http\Controllers\ViewSchoolController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,4 +73,11 @@ Route::get('/inscripcion/{id}', [ViewInscriptionController:: class, "edit"]);
 
 Route::delete('/inscripciones/{id}', [ViewInscriptionController:: class, "destroy"]);
 
+
+Route::get('/escuelas', [ViewSchoolController:: class, "index"]);
+Route :: get('/escuelas/create', [ViewSchoolController:: class, "create"]);
+Route :: post("/escuelas" , [ViewSchoolController:: class, "store"]);
+Route :: get("/escuelas/{id}" , [ViewSchoolController:: class, "edit"]);
+Route :: put("/updateSchool/{id}" , [ViewSchoolController:: class, "update"]);
+Route :: delete("escuelas/{id}" , [ViewSchoolController:: class, "destroy"]);
 ?>

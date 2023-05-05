@@ -74,8 +74,8 @@ class ViewHomeworkController extends Controller
         //
         $homework = Homeworks::find($id);
         $homework-> status = $request-> post ("status");
-        $homework->student_id = $request->student_id;
-        $homework->course_id= $request->course_id;
+        $homework->student_id = $request->post("student_id");
+        $homework->course_id= $request->post("course_id");
         if($homework!= null){
             $homework-> update();
             return redirect("tareas");
