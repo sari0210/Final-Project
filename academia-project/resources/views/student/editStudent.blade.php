@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header">Edit Estudiantes</div>
     <div class="card-body">
-        <form action="{{url('updateEstudiante',$estudiantes->id) }}" method="post">
+        <form action="{{url('updateEstudiante',$estudiantes->id)}}" method="post">
            
             @method('PUT')
             @csrf
@@ -20,7 +20,15 @@
             <input type="text" name="responsible_name" id="responsible_name" class="form-control"value="{{$estudiantes->responsible_name}}">
             <label for="" class="form-label">Phone number</label>
             <input type="text" name="phone_number" id="phone_number" class="form-control"value="{{$estudiantes->phone_number}}">
-            <label for="" class="form-label">Group id</label>
+
+
+            <label for="" class="form-label">Group Name</label>
+            <select name="group_name" id="">
+                <option value="{{$groups_id->id}}">{{$groups_id->groups_name}}</option>
+                @foreach ($groups_id as $item1)
+                <option value="{{$item1->id}}">{{$item1->groups_name}}</option>
+                @endforeach
+            </select>
             <input type="text" name="groups_id" id="groups_id" class="form-control" value="{{$estudiantes->groups_id}}">
             <label for="" class="form-label">School id</label>
             <input type="text" name="school_id" id="school_id" class="form-control"value="{{$estudiantes->school_id}}">

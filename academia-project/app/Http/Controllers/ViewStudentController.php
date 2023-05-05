@@ -16,16 +16,11 @@ class ViewStudentController extends Controller
     {
         //
         $pupil= Student::all();
-      return view("student.selectStudent", ["estudiantes"=> $pupil]);
+        $group_id= Groups ::all();
+      return view("student.selectStudent", array("estudiantes"=>$pupil, "group_id"=> $group_id));
      
     }
-    public function getForm()
-    {
-        //
-        $grupo= Groups::all();
-      return view("student.selectStudent", ["grupos"=>$grupo]);
-     
-    }
+   
 
    
 
@@ -34,7 +29,8 @@ class ViewStudentController extends Controller
      */
     public function create()
     {
-        //
+        // 
+        
         return view('student.createStudent');
     }
 
@@ -53,6 +49,7 @@ class ViewStudentController extends Controller
         $pupil-> phone_number = $request->phone_number;
         $pupil-> groups_id = $request->groups_id;
         $pupil-> school_id = $request->school_id;
+        $pupil-> groups_id = $request-> groups_id;
         //GUARDAR DATOS EN NUESTRA TABLA 
         if($pupil != null){
          $pupil-> save();
@@ -76,8 +73,11 @@ class ViewStudentController extends Controller
     public function edit(string $id)
     {
         //
+       
         $pupil = Student::find("$id");
-        return view("student.editStudent",["estudiantes"=>$pupil]);
+        
+        
+        return view("student.editStudent",array("estudiantes"=>$pupil));
     }
 
     /**
