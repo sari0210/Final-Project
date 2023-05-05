@@ -15,21 +15,39 @@ label {
 
 .container-fluid {
     --bs-gutter-x: 0;
-    text-align: center;
 }
 
 .card-formulario {
     margin: 0 auto;
     width: 50%;
-    /**background-color: red;**/
     margin-top: 10px;
 }
 
+/** Margen para los botones**/
 .btn-add {
     margin-top: 20px;
 }
 
+/**Footer**/
 .footer {
     margin-top: 25px;
-    padding: 30px;
+    padding: 25px;
+    text-align: center;
+}
+
+
+/** Centrado del navbar **/
+.navbar-nav {
+    margin: 0 auto;
+}
+
+/** Espacio para el formulario de estudiante **/
+
+html, body {
+    height: 100%;
+}
+
+.content-wrapper {
+    min-height: calc(100% - (92px));
+    padding-bottom: 100px;
 }
