@@ -6,6 +6,7 @@ use App\Http\Controllers\ViewStudentController;
 use App\Http\Controllers\ViewGroupsController;
 use App\Http\Controllers\ViewHomeworkController;
 use App\Http\Controllers\ViewInscriptionController;
+use App\Http\Controllers\ViewTeacherController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,7 +62,7 @@ Route :: post("/maestros" , [ViewTeacherController:: class, "store"]);
 Route :: get("/maestros/{id}" , [ViewTeacherController:: class, "edit"]);
 Route :: put("/updateMaestros/{id}" , [ViewTeacherController:: class, "update"]);
 Route :: delete("maestros/{id}" , [ViewTeacherController:: class, "destroy"]);
-Route :: get("form" , [ViewTeacherController:: class, "getForm"]);
+
 
 //rutas para inscription 
 Route::get('/inscripciones', [ViewInscriptionController:: class, "index"]);

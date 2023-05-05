@@ -1,4 +1,4 @@
-@extends('teacher.teachers')
+@extends('teacher.teacher')
 @section('content')
 
 <div class="card">
