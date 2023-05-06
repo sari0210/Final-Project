@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Groups;
+use App\Models\School;
 use Illuminate\Support\Facades\Log;
 
 class ViewStudentController extends Controller
@@ -17,7 +18,8 @@ class ViewStudentController extends Controller
         //
         $pupil= Student::all();
         $groups_id= Groups ::all();
-      return view("student.selectStudent", array("estudiantes"=>$pupil, "groups_id"=> $groups_id));
+        $school_id= School::all();
+      return view("student.selectStudent", array("estudiantes"=>$pupil, "groups_id"=> $groups_id, "school_id"=>$school_id));
      
     }
    
@@ -76,9 +78,10 @@ class ViewStudentController extends Controller
        
         $pupil = Student::find("$id");
         $groups_id=Groups::all();
+        $school_id=School::all();
         
         
-        return view("student.editStudent",array("estudiantes"=>$pupil,"groups_id"=> $groups_id));
+        return view("student.editStudent",array("estudiantes"=>$pupil,"groups_id"=> $groups_id, "school_id"=>$school_id));
     }
 
     /**

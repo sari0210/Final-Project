@@ -31,8 +31,17 @@
                 @endforeach
             </select>
             <br>
-            <label for="" class="form-label">School id</label>
-            <input type="text" name="school_id" id="school_id" class="form-control"value="{{$estudiantes->school_id}}">
+
+            <label for="" class="form-label">School Name</label>
+            <br>
+            <select name="school_name" id="">
+                <option value="{{$estudiantes->id}}">{{$estudiantes->school_name}}</option>
+                @foreach ($school_id as $item1)
+                <option value="{{$item1->id}}">{{$item1->school_name}}</option>
+                @endforeach
+            </select>
+            <br>
+            
             
           
             <input type="submit"  value="Update" class="btn btn-success btn-add" >

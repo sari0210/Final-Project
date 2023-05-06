@@ -13,7 +13,7 @@
         <th scope="col">Responsible name</th>
         <th scope="col">Phone number</th>
         <th scope="col">Groups ID</th>
-        <th scope="col">Groups Name</th>
+       
         <th scope="col">School id</th>
       </tr>
     </thead>
@@ -30,7 +30,7 @@
         <td>{{$item->responsible_name}}</td>
         <td >{{$item->phone_number}}</td>
         <td >{{$item->groups_id}}</td>
-        <td >{{$item->groups_name}}</td>
+      
         <td >{{$item->school_id}}</td>
         
       
