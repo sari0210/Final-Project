@@ -1,7 +1,7 @@
 @extends('teacher.teacher')
 @section('content')
 
-<div class="card">
+<div class="card card-formulario">
     <div class="card-header">Edit Maestros</div>
     <div class="card-body">
         <form action="{{url('updateMaestros',$maestros->id) }}" method="post">
@@ -20,7 +20,7 @@
             <input type="text" name="groups_id" id="groups_id" class="form-control" value="{{$maestros->groups_id}}">
             
           
-            <input type="submit"  value="Update" class="btn btn-success" >
+            <input type="submit"  value="Update" class="btn btn-success btn-add" >
             
         </form>
     </div>

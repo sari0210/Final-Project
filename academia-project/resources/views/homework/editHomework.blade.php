@@ -1,7 +1,7 @@
 @extends('homework.homework')
 @section('content_h')
 
-<div class="card">
+<div class="card card-formulario">
     <div class="card-header">Edit Tarea</div>
     <div class="card-body">
         <form action="{{url('updateHomework',$tareas->id) }}" method="post">
@@ -17,7 +17,7 @@
             <label for="" class="form-label">Name</label>
             <input type="text" name="course_id" id="course_id" class="form-control" value="{{ $tareas->course_id}}">
             
-            <input type="submit"  value="Update" class="btn btn-success" >
+            <input type="submit"  value="Update" class="btn btn-success btn-add" >
             
         </form>
     </div>

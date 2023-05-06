@@ -1,5 +1,6 @@
 @extends('student.students')
 @section('content')
+<div class="container">
 <table class="table">
     <thead>
 
@@ -31,12 +32,12 @@
         <td >{{$item->school_id}}</td>
         
       
-        <td><a href="{{url('estudiantes/'.$item->id)}}" class="btn btn-warning">Edit</a>
+        <td><a href="{{url('estudiantes/'.$item->id)}}" class="btn btn-warning btn-edicion">Edit</a>
            <form action="{{url('estudiantes/'.$item->id)}}" method="post">
            
             @csrf 
             @method("Delete")
-            <button class="btn btn-danger" type="submit">Delete</button>
+            <button class="btn btn-danger btn-edicion" type="submit">Delete</button>
         </form>
      
       </tr>
@@ -47,5 +48,6 @@
     <a href="{{url('estudiantes/create')}}" values="Add Student" class="btn btn-success"> Add Student</a>
 
   </div>
+</div>
     @endsection
    

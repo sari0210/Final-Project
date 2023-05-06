@@ -1,6 +1,7 @@
 @extends('inscription.inscription')
 @section('content')
-<table class="table">
+<div class="container">
+  <table class="table">
     <thead>
 
       <tr>
@@ -23,6 +24,7 @@
         <td>{{$item->teacher_id}}</td>
         <td>{{$item->inscrip_date}}</td>
       
+<<<<<<< HEAD
         <td>
           @method("GET")
           @csrf 
@@ -34,6 +36,14 @@
             @method("Delete")
             <button class="btn btn-danger" type="submit">Delete</button>
           </td>
+=======
+        <td><a href="{{url('inscripcion/'.$item->id)}}" class="btn btn-warning btn-edicion">Edit</a>
+
+           <form action="{{url('inscripciones/'.$item->id)}}" method="post">
+            @csrf 
+            @method("Delete")
+            <button class="btn btn-danger btn-edicion" type="submit">Delete</button>
+>>>>>>> ea8ec0c4ee0d3583e0738e641bdb47f38845e8ad
         </form>
      
       </tr>
@@ -44,5 +54,6 @@
     <a href="{{url('inscripciones/create')}}" values="Add Incripcion" class="btn btn-success"> Add Inscription</a>
 
   </div>
+</div>
     @endsection
    

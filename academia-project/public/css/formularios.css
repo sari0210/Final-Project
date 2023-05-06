@@ -1,0 +1,66 @@
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+h5 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+label {
+    margin-top: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.container-fluid {
+    --bs-gutter-x: 0;
+}
+
+.card-formulario {
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 10px;
+}
+
+/** Margen para los botones**/
+.btn-add {
+    margin-top: 20px;
+}
+
+.btn-edicion {
+    margin-top: 10px;
+}
+
+/**Footer**/
+.footer {
+    margin-top: 25px;
+    padding: 25px;
+    text-align: center;
+}
+
+/** .bg-body-tertiary {
+    --bs-bg-opacity: 5;
+    background-color: rgba(62, 152, 62, 0.45);
+} **/
+
+/** Centrado del navbar **/
+.navbar-nav {
+    margin: 0 auto;
+}
+
+/** Espacio para el formulario de estudiante **/
+
+html, body {
+    height: 100%;
+}
+
+.content-wrapper {
+    min-height: calc(100% - (92px));
+    padding-bottom: 100px;
+}
+
+/** Espacio entre el contenido y el titulo **/
+.c-container {
+    margin-top: 25px;
+}
