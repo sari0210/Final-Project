@@ -22,7 +22,7 @@ class ViewInscriptionController extends Controller
         $inscrip_curso = Course::all();
         $inscrip_alumno = Student::all();
         $inscrip_maestro = Teacher::all();
-        return view ("inscription.selectInscription", array("inscripciones" =>$inscripciones, "inscrip_curso" => $inscrip_curso , "inscrip_alumno" => $inscrip_alumno , "inscrip_maestro" => $inscrip_maestro ));
+        return view ("inscription.selectInscription", array("inscripciones" => $inscripciones, "inscrip_curso" => $inscrip_curso , "inscrip_alumno" => $inscrip_alumno , "inscrip_maestro" => $inscrip_maestro ));
     }
 
     /*public function getcurso()
@@ -106,6 +106,13 @@ class ViewInscriptionController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $inscripciones = Inscription::find($id);
+        $inscripciones-> course_id = $request-> course_id;
+        $inscripciones-> student_id = $request-> student_id;
+        $inscripciones-> teacher_id = $request-> teacher_id;
+        $inscripciones-> inscrip_date = $request-> inscrip_date;
+        $inscripciones->update();
+        return redirect("inscripciones");
 
     }
 

@@ -69,10 +69,13 @@ Route :: delete("maestros/{id}" , [ViewTeacherController:: class, "destroy"]);
 Route::get('/inscripciones', [ViewInscriptionController:: class, "index"]);
 Route::get('/inscripciones/create', [ViewInscriptionController:: class, "create"]);
 Route::post('/inscripciones', [ViewInscriptionController:: class, "store"]);
-Route::get('/inscripciones/{id}', [ViewInscriptionController:: class, "edit"]);
+Route::get('/inscripciones/{id}', [ViewInscriptionController:: class, "edit"])->name('edit');
+Route::put('/inscripUpdate/{id}', [ViewInscriptionController:: class, "update"]);
+Route::delete('/inscripciones/{id}', [ViewInscriptionController:: class, "destroy"])->name('deleteInscrip');
 
-Route::delete('/inscripciones/{id}', [ViewInscriptionController:: class, "destroy"]);
 
+
+// RUTAS DE ESCUELA
 
 Route::get('/escuelas', [ViewSchoolController:: class, "index"]);
 Route :: get('/escuelas/create', [ViewSchoolController:: class, "create"]);

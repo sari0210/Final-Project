@@ -24,14 +24,21 @@
         <td>{{$item->inscrip_date}}</td>
       
         <td>
-            <a href="{{url('inscripciones/'.$item->id)}}" class="btn btn-warning btn-edicion">Edit</a>
-        </td>
-        <td>
-            <form action="{{url('inscripciones/'.$item->id)}}" method="post">
-                @csrf 
-                @method("Delete")
-                <button class="btn btn-danger btn-edicion" type="submit">Delete</button>
+            <!-- hacemos referencia al nombre de la ruta para editar el curso -->
+            <form action="{{ route('edit', $item->id) }}" method="POST">
+                <!-- especificando el tipo de peticion -->
+                @method('GET')
+                @csrf <!-- token para autorizar la peticion -->
+                <button class="btn btn-warning"><i class="bi bi-pencil-fill"></i> Edit</button>
             </form>
+        </td>
+
+        <td>
+            <form action="{{ route('deleteInscrip', $item->id) }}" method="POST">
+            @method('DELETE')
+            @csrf
+            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i> Delete</button>
+        </form>
         </td>    
           
        
@@ -41,7 +48,7 @@
     </tbody>
   </table>
   <div>
-    <a href="{{url('cursos/create')}}" values="Add Course" class="btn btn-success"> Add Course</a>
+    <a href="{{url('inscripciones/create')}}" values="Add Course" class="btn btn-success"> Add Inscription</a>
 
   </div>
   </div>

@@ -35,7 +35,7 @@
             </select>
            <br>
         
-           <input type="text "data-type="date"  name="inscrip_date" id="inscrip_date" value="2023-05-03">
+           <input type="text "data-type="date"  name="inscrip_date" id="inscrip_date" value="YYYY-MM-DD">
            
            
 
