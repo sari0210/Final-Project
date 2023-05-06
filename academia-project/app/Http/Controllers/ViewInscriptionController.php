@@ -89,14 +89,15 @@ class ViewInscriptionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         //
+        $inscripciones = Inscription::find($id);
         $inscrip_curso = Course::all();
         $inscrip_alumno = Student::all();
         $inscrip_maestro = Teacher::all();
-        $inscripcion = Inscription::find($id);
-        return view("inscription.editinscription" , array("inscripcion" =>$inscripcion, "inscrip_curso" => $inscrip_curso , "inscrip_alumno" => $inscrip_alumno , "inscrip_maestro" => $inscrip_maestro ) );
+        
+       return view("inscription.editinscription" , array("inscripciones" =>$inscripciones, "inscrip_curso" => $inscrip_curso , "inscrip_alumno" => $inscrip_alumno , "inscrip_maestro" => $inscrip_maestro ) );
     }
 
     /**

@@ -5,7 +5,7 @@
 <div class="card">
     <div class="card-header">Edit Inscription</div>
     <div class="card-body">
-        <form action="{{url('inscripcion')}}" method="post">
+        <form action="{{url('inscripciones')}}" method="post">
             @csrf
 
             <label for="" class="form-label">Course Name </label>

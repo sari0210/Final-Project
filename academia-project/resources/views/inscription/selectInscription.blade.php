@@ -23,12 +23,17 @@
         <td>{{$item->teacher_id}}</td>
         <td>{{$item->inscrip_date}}</td>
       
-        <td><a href="{{url('inscripcion/'.$item->id)}}" class="btn btn-warning">Edit</a>
-
+        <td>
+          @method("GET")
+          @csrf 
+          <a href="{{url('inscripciones/'.$item->id)}}" class="btn btn-warning">Edit</a>
+        </td> 
+        <td>  
            <form action="{{url('inscripciones/'.$item->id)}}" method="post">
             @csrf 
             @method("Delete")
             <button class="btn btn-danger" type="submit">Delete</button>
+          </td>
         </form>
      
       </tr>
