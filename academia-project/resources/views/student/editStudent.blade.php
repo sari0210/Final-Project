@@ -23,13 +23,14 @@
 
 
             <label for="" class="form-label">Group Name</label>
+            <br>
             <select name="group_name" id="">
-                <option value="{{$groups_id->id}}">{{$groups_id->groups_name}}</option>
+                <option value="{{$estudiantes->id}}">{{$estudiantes->groups_name}}</option>
                 @foreach ($groups_id as $item1)
                 <option value="{{$item1->id}}">{{$item1->groups_name}}</option>
                 @endforeach
             </select>
-            <input type="text" name="groups_id" id="groups_id" class="form-control" value="{{$estudiantes->groups_id}}">
+            <br>
             <label for="" class="form-label">School id</label>
             <input type="text" name="school_id" id="school_id" class="form-control"value="{{$estudiantes->school_id}}">
             

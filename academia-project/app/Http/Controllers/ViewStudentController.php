@@ -16,8 +16,8 @@ class ViewStudentController extends Controller
     {
         //
         $pupil= Student::all();
-        $group_id= Groups ::all();
-      return view("student.selectStudent", array("estudiantes"=>$pupil, "group_id"=> $group_id));
+        $groups_id= Groups ::all();
+      return view("student.selectStudent", array("estudiantes"=>$pupil, "groups_id"=> $groups_id));
      
     }
    
@@ -41,6 +41,7 @@ class ViewStudentController extends Controller
     {
         //
         $pupil = new Student;
+        $groups_id =new Groups;
         $pupil-> name = $request->name;
         $pupil-> lastname = $request->lastname;
         $pupil-> age = $request->age;
@@ -49,7 +50,7 @@ class ViewStudentController extends Controller
         $pupil-> phone_number = $request->phone_number;
         $pupil-> groups_id = $request->groups_id;
         $pupil-> school_id = $request->school_id;
-        $pupil-> groups_id = $request-> groups_id;
+        $pupil-> groups_name = $request-> groups_name;
         //GUARDAR DATOS EN NUESTRA TABLA 
         if($pupil != null){
          $pupil-> save();
@@ -75,9 +76,10 @@ class ViewStudentController extends Controller
         //
        
         $pupil = Student::find("$id");
+        $groups_id=Groups::all();
         
         
-        return view("student.editStudent",array("estudiantes"=>$pupil));
+        return view("student.editStudent",array("estudiantes"=>$pupil,"groups_id"=> $groups_id));
     }
 
     /**
@@ -86,7 +88,8 @@ class ViewStudentController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $pupil =Student::find("$id");
+        $pupil =Student::find($id);
+        $groups_id= Groups::find($id);
         $pupil-> name = $request-> post("name");
         $pupil-> lastname = $request-> post ("lastname");
         $pupil-> age = $request->post("age");
@@ -94,13 +97,10 @@ class ViewStudentController extends Controller
         $pupil-> responsible_name = $request->post("responsible_name");
         $pupil-> phone_number = $request->post("phone_number");
         $pupil-> groups_id = $request->post("groups_id");
+        $pupil-> groups_name = $request->post("groups_name");
         $pupil-> school_id = $request->post("school_id");
-        if($pupil != null){
-            $pupil-> update();
-            return redirect("estudiantes");
-           }else {
-            return "error on save";
-           }
+         return redirect("estudiantes");
+        
     }
 
     /**
