@@ -32,8 +32,11 @@ class ViewStudentController extends Controller
     public function create()
     {
         // 
-        
-        return view('student.createStudent');
+        $pupil= Student::all();
+        $groups_id= Groups ::all();
+        $school_id= School::all();
+      return view("student.createStudent", array("estudiantes"=>$pupil, "groups_id"=> $groups_id, "school_id"=>$school_id));
+        //return view('student.createStudent');
     }
 
     /**
