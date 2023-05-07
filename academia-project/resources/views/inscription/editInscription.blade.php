@@ -5,12 +5,12 @@
 <div class="card card-formulario">
     <div class="card-header">Edit Inscription</div>
     <div class="card-body">
-        <form action="{{url('inscripUpdate', $inscripciones->id)}}" method="post">
+        <form action="{{url('inscripUpdate', $inscripciones->incript_id)}}" method="post">
             @method('PUT')
             @csrf
             <label for="" class="form-label">Course Name </label>
             <select name="course_id" id="" class="form-control">
-                <option value="{{$inscripciones->course_id }}">{{ $inscripciones->course_id}}</option>
+                <option value="{{$inscripciones->course_id }}">{{ $inscripciones->curso}}</option>
                 @foreach ($inscrip_curso as $value1)
                     <option value={{$value1->id}}>{{$value1->course_name}}</option>
                 @endforeach

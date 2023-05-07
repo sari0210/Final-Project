@@ -93,6 +93,10 @@ class ViewInscriptionController extends Controller
     {
         //
         $inscripciones = Inscription::find($id);
+
+        //$inscripciones = Inscription::join("courses','inscriptions.course_id','courses.id")
+                      //  ->select("courses.course_name as curso", "inscriptions.id as incript_id", "inscriptions.student_id", "inscriptions.teacher_id", "inscriptions.inscrip_date")->fin($id);
+
         $inscrip_curso = Course::all();
         $inscrip_alumno = Student::all();
         $inscrip_maestro = Teacher::all();
