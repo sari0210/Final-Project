@@ -16,11 +16,21 @@
             <input type="text" name="address" id="address" class="form-control" value="{{$maestros->address}}">
             <label for="" class="form-label">Phone number</label>
             <input type="text" name="phone_number" id="phone_number" class="form-control"value="{{$maestros->phone_number}}">
-            <label for="" class="form-label">Group id</label>
-            <input type="text" name="groups_id" id="groups_id" class="form-control" value="{{$maestros->groups_id}}">
-            
+
+            <label for="" class="form-label">Group Name</label>
+            <br>
+            <select name="group_name" id="">
+                <option value="{{$maestros->id}}">{{$maestros->groups_name}}</option>
+                @foreach ($groups_id as $item1)
+                <option value="{{$item1->id}}">{{$item1->groups_name}}</option>
+                @endforeach
+            </select>
+            <br>
+
           
             <input type="submit"  value="Update" class="btn btn-success btn-add" >
+            
+           <br> <br><br><br>
             
         </form>
     </div>

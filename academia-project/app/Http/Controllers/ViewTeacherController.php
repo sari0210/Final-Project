@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use App\Models\Groups;
 use Illuminate\Support\Facades\Log;
 
 class ViewTeacherController extends Controller
@@ -15,16 +16,20 @@ class ViewTeacherController extends Controller
     {
         //
         $teacher = Teacher::all();
-        return view("teacher.selectTeacher" , ["maestros" =>$teacher]);
+        $groups_id=Groups::all();
+        return view("teacher.selectTeacher" , array("maestros" =>$teacher, "groups_id"=> $groups_id));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {  
         //crear un nuevo maestro
-        return view('teacher.createTeacher');
+        $teacher = Teacher::all();
+        $groups_id=Groups::all();
+        
+        return view('teacher.createTeacher', array("maestros" =>$teacher, "groups_id"=> $groups_id));
     }
 
     /**
@@ -43,11 +48,13 @@ class ViewTeacherController extends Controller
         
         //GUARDAR DATOS EN NUESTRA TABLA 
         if($teacher != null){
-         $teacher-> save();
-         return redirect("maestros");
-        }else {
-         return "error on save";
-        }
+            $teacher-> save();
+            return redirect("maestros");
+           }else {
+            return "error on save";
+           }
+         
+       
 
     }
 
@@ -66,7 +73,8 @@ class ViewTeacherController extends Controller
     {
         //
         $teacher = Teacher::find("$id");
-        return view("teacher.editTeacher",["maestros"=>$teacher]);
+        $groups_id=Groups::all();
+        return view("teacher.editTeacher",array("maestros" =>$teacher, "groups_id"=> $groups_id));
     }
 
     /**
@@ -81,12 +89,9 @@ class ViewTeacherController extends Controller
         $teacher-> address = $request->post("address");
         $teacher-> phone_number = $request->post("phone_number");
         $teacher-> groups_id = $request->post("groups_id");
-        if($teacher != null){
-            $teacher-> update();
+        
             return redirect("maestros");
-           }else {
-            return "error on save";
-           }
+           
     }
 
     /**
