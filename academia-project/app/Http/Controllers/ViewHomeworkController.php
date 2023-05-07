@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Homeworks;
+use App\Models\Student;
+use App\Models\Course;
 use Illuminate\Support\Facades\Log;
 
 class ViewHomeworkController extends Controller
@@ -15,7 +17,9 @@ class ViewHomeworkController extends Controller
     {
         //
         $homework = Homeworks :: all();
-        return view("homework.selectHomework", ["tareas"=> $homework]);
+        $student_name=Student:: all();
+        $course_name=Course::all();
+        return view("homework.selectHomework", array ("tareas"=> $homework, "nombre_estudiante"=>$student_name, "nombre_curso" =>$course_name));
         
         
     }
@@ -26,7 +30,11 @@ class ViewHomeworkController extends Controller
     public function create()
     {
         //
-        return view ("homework.createHomework");
+        $homework=Homeworks::all();
+        $student_name=Student::all();
+        $course_name=Course::all();
+
+        return view ("homework.createHomework", array("tareas"=> $homework, "nombre_estudiante"=>$student_name, "nombre_curso" =>$course_name) );
     }
 
     /**
@@ -63,7 +71,9 @@ class ViewHomeworkController extends Controller
     {
         //
         $homework = Homeworks::find($id);
-        return view("homework.editHomework",["tareas"=> $homework]);
+        $student_name=Student::all();
+        $course_name=Course::all();
+        return view("homework.editHomework",array("tareas"=> $homework, "nombre_estudiante"=>$student_name, "nombre_curso" =>$course_name));
     }
 
     /**
@@ -76,12 +86,9 @@ class ViewHomeworkController extends Controller
         $homework-> status = $request-> post ("status");
         $homework->student_id = $request->post("student_id");
         $homework->course_id= $request->post("course_id");
-        if($homework!= null){
-            $homework-> update();
+        
             return redirect("tareas");
-           }else {
-            return "error on save";
-           }
+           
     }
 
     /**

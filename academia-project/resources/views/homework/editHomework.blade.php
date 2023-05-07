@@ -11,8 +11,27 @@
             <label for="" class="form-label">Estado</label>
             <input type="text" name="status" id="status" class="form-control" value="{{ $tareas->status}}">
 
-            <label for="" class="form-label">Estudiante</label>
-            <input type="text" name="student_id" id="student_id" class="form-control" value="{{ $tareas->student_id}}">
+            <label for="" class="form-label">Student Name</label>
+            <br>
+            <select name="student_name" id="">
+                <option value="{{$tareas->id}}">{{$tareas->tareas_name}}</option>
+                @foreach ($nombre_estudiante as $item1)
+                <option value="{{$item1->id}}">{{$item1->name}}</option>
+                @endforeach
+            </select>
+            <br>
+
+            <label for="" class="form-label">Course Name</label>
+            <br>
+            <select name="course_name" id="">
+                <option value="{{$tareas->id}}">{{$tareas->tareas_name}}</option>
+                @foreach ($nombre_curso as $item1)
+                <option value="{{$item1->id}}">{{$item1->course_name}}</option>
+                @endforeach
+            </select>
+            <br>
+
+
 
             <label for="" class="form-label">Name</label>
             <input type="text" name="course_id" id="course_id" class="form-control" value="{{ $tareas->course_id}}">
