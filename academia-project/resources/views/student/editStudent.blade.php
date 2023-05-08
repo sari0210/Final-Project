@@ -24,8 +24,8 @@
 
             <label for="" class="form-label">Group Name</label>
             <br>
-            <select name="group_name" id="">
-                <option value="{{$estudiantes->id}}">{{$estudiantes->groups_name}}</option>
+            <select name="groups" id="">
+                <option value="{{$estudiantes->id}}">{{$estudiantes->groups_id}}</option>
                 @foreach ($groups_id as $item1)
                 <option value="{{$item1->id}}">{{$item1->groups_name}}</option>
                 @endforeach
