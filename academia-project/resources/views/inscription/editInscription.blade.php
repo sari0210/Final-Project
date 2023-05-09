@@ -5,7 +5,7 @@
 <div class="card card-formulario">
     <div class="card-header">Edit Inscription</div>
     <div class="card-body">
-        <form action="{{url('inscripUpdate', $inscripciones->incript_id)}}" method="post">
+        <form action="{{route('updateInscrip', $inscripciones->inscript_id)}}" method="post">
             @method('PUT')
             @csrf
             <label for="" class="form-label">Course Name </label>
@@ -19,7 +19,7 @@
                 <br>
                 <label for="" class="form-label">Student Name </label>
                 <select name="student_id" id="" class="form-control">
-                <option value="{{$inscripciones->student_id}}">{{$inscripciones->student_id}}</option>
+                <option value="{{$inscripciones->student_id}}">{{$inscripciones->alumno}}</option>
                 @foreach ($inscrip_alumno as $value2)
                     <option value={{$value2->id}}>{{$value2->name}}</option>
                 @endforeach
@@ -27,7 +27,7 @@
                 <br>
                 <label for="" class="form-label">Teacher Name </label>
             <select name="teacher_id" id="" class="form-control">
-                <option value="{{$inscripciones->teacher_id}}">{{$inscripciones->teacher_id}}</option>
+                <option value="{{$inscripciones->teacher_id}}">{{$inscripciones->maestro}}</option>
                 @foreach ($inscrip_maestro as $value3)
                     <option value={{$value3->id}}>{{$value3->name}}</option>
                 @endforeach
@@ -40,7 +40,7 @@
 
            <br>
            <br>
-            <input type="submit" value="Add Cursos" class="btn btn-success btn-add" >
+            <input type="submit" value="Update Cursos" class="btn btn-success btn-add" >
         </form>
     </div>
 </div>
