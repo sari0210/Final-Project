@@ -15,9 +15,15 @@ class ViewTeacherController extends Controller
     public function index() 
     {
         //
-        $teacher = Teacher::all();
-        $groups_id=Groups::all();
-        return view("teacher.selectTeacher" , array("maestros" =>$teacher, "groups_id"=> $groups_id));
+          //$teacher = Teacher::all();
+          //$groups_id=Groups::all();
+        $teacher = Teacher::join('groups','teachers.groups_id','groups.id')->join('schools','teachers.school_id','schools.id')
+        ->select('groups.groups_name as groups','schools.school_name as schools','students.id as id_students'
+        ,'teachers.name','teachers.lastname','teachers.address',
+        'teachers.phone_number','teachers.groups_id',
+         'teachers.groups_id')->get();
+      return view("teacher.selectTeacher" , array("maestros" =>$teacher));
+      
     }
 
     /**
@@ -28,8 +34,7 @@ class ViewTeacherController extends Controller
         //crear un nuevo maestro
         $teacher = Teacher::all();
         $groups_id=Groups::all();
-        
-        return view('teacher.createTeacher', array("maestros" =>$teacher, "groups_id"=> $groups_id));
+        return view("teacher.createTeacher", array("maestros"=>$teacher, "groups_id"=> $groups_id, "school_id"=>$school_id));
     }
 
     /**
@@ -72,8 +77,14 @@ class ViewTeacherController extends Controller
     public function edit(string $id)
     {
         //
-        $teacher = Teacher::find("$id");
+       // $teacher = Teacher::find("$id");
+        $teacher = Teacher::join('groups','students.groups_id','groups.id')
+        ->select('groups.groups_name as groups','students.id as id_students'
+        ,'teachers.name','teachers.lastname','teachers.address',
+        'teachers.phone_number','teachers.groups_id',
+         'teachers.groups_id')->find($id);
         $groups_id=Groups::all();
+
         return view("teacher.editTeacher",array("maestros" =>$teacher, "groups_id"=> $groups_id));
     }
 
@@ -89,7 +100,7 @@ class ViewTeacherController extends Controller
         $teacher-> address = $request->post("address");
         $teacher-> phone_number = $request->post("phone_number");
         $teacher-> groups_id = $request->post("groups_id");
-        
+        $teacher->update();
             return redirect("maestros");
            
     }
