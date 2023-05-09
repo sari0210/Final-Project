@@ -34,7 +34,7 @@ Route :: delete("/cursos/{id}" , [ViewCourseController:: class, "destroy"]);
 
 //RUTAS PARA ESTUDIANTES
 Route::get('/estudiantes', [ViewStudentController:: class, "index"])->name('estudiantes');
-Route :: get('/estudiantes/create', [ViewStudentController:: class, "create"]);
+Route :: get('/estudiantes/create', [ViewStudentController:: class, "create"])->name('registrar');
 Route :: post("/estudiantes" , [ViewStudentController:: class, "store"]);
 Route :: get("/estudiantes/{id}" , [ViewStudentController:: class, "edit"]);
 Route :: put("/updateEstudiante/{id}" , [ViewStudentController:: class, "update"])->name('actualizar');

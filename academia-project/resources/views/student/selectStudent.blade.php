@@ -22,7 +22,7 @@
       <tr>
         
       
-        <th scope="row">{{$item->id}}</th> 
+        <th scope="row">{{$item->id_students}}</th> 
         <td >{{$item->name}}</td>
         <td>{{$item->lastname}}</td>
         <td>{{$item->age}}</td>
@@ -47,7 +47,7 @@
     </tbody>
   </table>
   <div>
-    <a href="{{url('estudiantes/create')}}" values="Add Student" class="btn btn-success"> Add Student</a>
+    <a href="{{route('registrar')}}" values="Add Student" class="btn btn-success"> Add Student</a>
 
   </div>
 </div>
