@@ -79,9 +79,9 @@ class ViewStudentController extends Controller
     {
         //
        
-        $pupil = Student::find("$id");
-       /* $pupil = Student::join('groups','student.id_groups', 'groups.id')
-        ->select('groups.groups_name as groups', 'student.id as id ', 'student.age'. 'student.address', 'student.phone_number', 'student.groups_id', 'student.school_id', 'student.id_groups')->find($id);*/
+        //$pupil = Student::find("$id");
+        $pupil = Student::join('groups','students.groups_id', 'groups.id')
+        ->select('groups.groups_name as groups', 'students.id as id_students ','students.name','students.lastname', 'students.age', 'students.address','students.responsible_name', 'students.phone_number', 'students.groups_id', 'students.school_id', 'students.groups_id')->find($id);
         $groups_id=Groups::all();
         $school_id=School::all();
         
