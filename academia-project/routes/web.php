@@ -50,6 +50,7 @@ Route :: get("/grupos/{id}" , [ViewGroupsController:: class, "edit"]);
 Route :: put("/updateGrupo/{id}" , [ViewGroupsController:: class, "update"]);
 Route :: delete("grupos/{id}" , [ViewGroupsController:: class, "destroy"]);
 
+//rutas de Tareas
 Route::get('/tareas', [ViewHomeworkController:: class, "index"]);
 Route :: get('/tareas/create', [ViewHomeworkController:: class, "create"]);
 Route :: post("/tareas" , [ViewHomeworkController:: class, "store"]);
@@ -57,6 +58,7 @@ Route :: get("/tareas/{id}" , [ViewHomeworkController:: class, "edit"]);
 Route :: put("/updateHomework/{id}" , [ViewHomeworkController:: class, "update"]);
 Route :: delete("tareas/{id}" , [ViewHomeworkController:: class, "destroy"]);
 
+//rutas de maestros
 Route::get('/maestros', [ViewTeacherController:: class, "index"]);
 Route :: get('/maestros/create', [ViewTeacherController:: class, "create"]);
 Route :: post("/maestros" , [ViewTeacherController:: class, "store"]);
@@ -66,11 +68,11 @@ Route :: delete("maestros/{id}" , [ViewTeacherController:: class, "destroy"]);
 
 
 //rutas para inscription 
-Route::get('/inscripciones', [ViewInscriptionController:: class, "index"]);
+Route::get('/inscripciones', [ViewInscriptionController:: class, "index"])->name('all');
 Route::get('/inscripciones/create', [ViewInscriptionController:: class, "create"]);
 Route::post('/inscripciones', [ViewInscriptionController:: class, "store"]);
 Route::get('/inscripciones/{id}', [ViewInscriptionController:: class, "edit"])->name('edit');
-Route::put('/inscripUpdate/{id}', [ViewInscriptionController:: class, "update"]);
+Route::put('/inscripUpdate/{id}', [ViewInscriptionController:: class, "update"])->name('updateInscrip');
 Route::delete('/inscripciones/{id}', [ViewInscriptionController:: class, "destroy"])->name('deleteInscrip');
 
 

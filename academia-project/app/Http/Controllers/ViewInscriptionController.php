@@ -92,11 +92,12 @@ class ViewInscriptionController extends Controller
     public function edit($id)
     {
         //
-        $inscripciones = Inscription::find($id);
-
-        //$inscripciones = Inscription::join("courses','inscriptions.course_id','courses.id")
-                      //  ->select("courses.course_name as curso", "inscriptions.id as incript_id", "inscriptions.student_id", "inscriptions.teacher_id", "inscriptions.inscrip_date")->fin($id);
-
+       //$inscripciones = Inscription::find($id);
+        //metodo para ar a llamar nombre del curso NO el ID
+        $inscripciones = Inscription::join('courses', 'inscriptions.course_id','courses.id')->join('students', 'inscriptions.student_id','students.id')->join('teachers', 'inscriptions.teacher_id','teachers.id')
+                     ->select('courses.course_name as curso','students.name as alumno','teachers.name as maestro','inscriptions.id as inscript_id', 'inscriptions.course_id','inscriptions.student_id', 'inscriptions.teacher_id', 'inscriptions.inscrip_date')->find($id);
+       //METOD PARA MANDAR A LLAMAR EL NOMBRE  DEL STUDENT
+        
         $inscrip_curso = Course::all();
         $inscrip_alumno = Student::all();
         $inscrip_maestro = Teacher::all();
@@ -107,16 +108,16 @@ class ViewInscriptionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
         //
         $inscripciones = Inscription::find($id);
-        $inscripciones-> course_id = $request-> course_id;
-        $inscripciones-> student_id = $request-> student_id;
-        $inscripciones-> teacher_id = $request-> teacher_id;
-        $inscripciones-> inscrip_date = $request-> inscrip_date;
+        $inscripciones-> course_id = $request-> post('course_id');
+        $inscripciones-> student_id = $request->post('student_id');
+        $inscripciones-> teacher_id = $request->post('teacher_id');
+        $inscripciones-> inscrip_date = $request->post('inscrip_date');
         $inscripciones->update();
-        return redirect("inscripciones");
+        return redirect()->route("all");
 
     }
 
