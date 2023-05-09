@@ -33,13 +33,13 @@ Route :: put("/update/{id}" , [ViewCourseController:: class, "update"]);
 Route :: delete("/cursos/{id}" , [ViewCourseController:: class, "destroy"]);
 
 //RUTAS PARA ESTUDIANTES
-Route::get('/estudiantes', [ViewStudentController:: class, "index"]);
+Route::get('/estudiantes', [ViewStudentController:: class, "index"])->name('estudiantes');
 Route :: get('/estudiantes/create', [ViewStudentController:: class, "create"]);
 Route :: post("/estudiantes" , [ViewStudentController:: class, "store"]);
 Route :: get("/estudiantes/{id}" , [ViewStudentController:: class, "edit"]);
-Route :: put("/updateEstudiante/{id}" , [ViewStudentController:: class, "update"]);
+Route :: put("/updateEstudiante/{id}" , [ViewStudentController:: class, "update"])->name('actualizar');
 Route :: delete("estudiantes/{id}" , [ViewStudentController:: class, "destroy"]);
-Route :: get("form" , [ViewStudentController:: class, "getForm"]);
+//Route :: get("form" , [ViewStudentController:: class, "getForm"]);
 
 // rutas para grupo
 

@@ -16,10 +16,15 @@ class ViewStudentController extends Controller
     public function index()
     {
         //
-        $pupil= Student::all();
-        $groups_id= Groups ::all();
-        $school_id= School::all();
-      return view("student.selectStudent", array("estudiantes"=>$pupil, "groups_id"=> $groups_id, "school_id"=>$school_id));
+       // $pupil= Student::all();
+       // $groups_id=Groups ::all();
+        //$school_id=School::all();
+        $pupil = Student::join('groups','students.groups_id','groups.id')->join('schools','students.school_id','schools.id')
+        ->select('groups.groups_name as groups','schools.school_name as schools','students.id as id_students'
+        ,'students.name','students.lastname','students.age','students.address',
+        'students.responsible_name','students.phone_number','students.groups_id',
+         'students.school_id','students.groups_id')->get();
+      return view("student.selectStudent", array("estudiantes"=>$pupil));
      
     }
    
@@ -34,9 +39,11 @@ class ViewStudentController extends Controller
         // 
         $pupil= Student::all();
         $groups_id= Groups ::all();
+        //$nextGroupId = $groups->count() > 0 ? $groups->max('group_id') + 1 : 1;
         $school_id= School::all();
       return view("student.createStudent", array("estudiantes"=>$pupil, "groups_id"=> $groups_id, "school_id"=>$school_id));
         //return view('student.createStudent');
+        //return view('student.createStudent', compact('estudiantes', 'groups', 'schools', 'nextGroupId'));
     }
 
     /**
@@ -75,13 +82,16 @@ class ViewStudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         //
        
         //$pupil = Student::find("$id");
-        $pupil = Student::join('groups','students.groups_id', 'groups.id')
-        ->select('groups.groups_name as groups', 'students.id as id_students ','students.name','students.lastname', 'students.age', 'students.address','students.responsible_name', 'students.phone_number', 'students.groups_id', 'students.school_id', 'students.groups_id')->find($id);
+        $pupil = Student::join('groups','students.groups_id','groups.id')
+        ->select('groups.groups_name as groups','students.id as id_students'
+        ,'students.name','students.lastname','students.age','students.address',
+        'students.responsible_name','students.phone_number','students.groups_id',
+         'students.school_id','students.groups_id')->find($id);
         $groups_id=Groups::all();
         $school_id=School::all();
         
@@ -92,21 +102,40 @@ class ViewStudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    
+    public function update(Request $request,  $id)
     {
         //
         $pupil =Student::find($id);
-        $pupil-> name = $request-> post("name");
-        $pupil-> lastname = $request-> post ("lastname");
-        $pupil-> age = $request->post("age");
-        $pupil-> address = $request->post("address");
-        $pupil-> responsible_name = $request->post("responsible_name");
-        $pupil-> phone_number = $request->post("phone_number");
-        $pupil-> groups_id = $request->post("groups_id");
-        $pupil-> school_id = $request->post("school_id");
-         return redirect("estudiantes");
+        $pupil-> name=$request->post("name");
+        $pupil-> lastname=$request->post("lastname");
+        $pupil-> age=$request->post("age");
+        $pupil-> address =$request->post("address");
+        $pupil-> responsible_name=$request->post("responsible_name");
+        $pupil-> phone_number=$request->post("phone_number");
+        $pupil-> groups_id=$request->post("groups_id");
+        $pupil-> school_id=$request->post("school_id");
+        $pupil->update();
+        return redirect()->route("estudiantes");
         
     }
+   /* public function update(Request $request, string $id)
+{
+    $pupil = Student::find($id);
+    $pupil->name = $request->input('name');
+    $pupil->lastname = $request->input('lastname');
+    $pupil->age = $request->input('age');
+    $pupil->address = $request->input('address');
+    $pupil->responsible_name = $request->input('responsible_name');
+    $pupil->phone_number = $request->input('phone_number');
+    $pupil->groups_id = $request->input('groups_id');
+    $pupil->school_id = $request->input('school_id');
+    $pupil->save();
+
+ 
+
+    return redirect('estudiantes')->with('success', 'Estudiante actualizado exitosamente.');
+}*/
 
     /**
      * Remove the specified resource from storage.

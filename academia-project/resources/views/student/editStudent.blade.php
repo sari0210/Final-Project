@@ -4,12 +4,12 @@
 <div class="card card-formulario">
     <div class="card-header">Edit Estudiantes</div>
     <div class="card-body">
-        <form action="{{url('updateEstudiante',$estudiantes->id_students)}}" method="post">
+        <form action="{{route('actualizar',$estudiantes->id_students)}}" method="post">
            
             @method('PUT')
             @csrf
             <label for="" class="form-label">Name</label>
-            <input type="text" name="-name" id="name" class="form-control" value="{{$estudiantes->name}}">
+            <input type="text" name="name" id="name" class="form-control" value="{{$estudiantes->name}}">
             <label for="" class="form-label">Lastname</label>
             <input type="text" name="lastname" id="lastname" class="form-control" value="{{$estudiantes->lastname}}">
             <label for="" class="form-label">Age</label>
@@ -24,7 +24,7 @@
 
             <label for="" class="form-label">Group Name</label>
             <br>
-            <select name="groups" id="">
+            <select name="groups_id" id="">
                 <option value="{{$estudiantes->groups_id}}">{{$estudiantes->groups}}</option>
                 @foreach ($groups_id as $item1)
                 <option value="{{$item1->id}}">{{$item1->groups_name}}</option>
@@ -34,7 +34,7 @@
 
             <label for="" class="form-label">School Name</label>
             <br>
-            <select name="school_name" id="">
+            <select name="school_id" id="">
                 <option value="{{$estudiantes->id}}">{{$estudiantes->school_name}}</option>
                 @foreach ($school_id as $item1)
                 <option value="{{$item1->id}}">{{$item1->school_name}}</option>

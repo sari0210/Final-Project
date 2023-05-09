@@ -29,13 +29,13 @@
         <td >{{$item->address}}</td>
         <td>{{$item->responsible_name}}</td>
         <td >{{$item->phone_number}}</td>
-        <td >{{$item->groups_id}}</td>
+        <td >{{$item->groups}}</td>
       
-        <td >{{$item->school_id}}</td>
+        <td >{{$item->schools}}</td>
         
       
-        <td><a href="{{url('estudiantes/'.$item->id)}}" class="btn btn-warning btn-edicion">Edit</a>
-           <form action="{{url('estudiantes/'.$item->id)}}" method="post">
+        <td><a href="{{url('estudiantes/'.$item->id_students)}}" class="btn btn-warning btn-edicion">Edit</a>
+           <form action="{{url('estudiantes/'.$item->id_students)}}" method="post">
            
             @csrf 
             @method("Delete")
