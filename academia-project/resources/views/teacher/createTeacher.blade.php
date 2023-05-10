@@ -19,7 +19,7 @@
             <input type="text" name="phone_number" id="phone_number" class="form-control">
             <label for="" class="form-label">Group Name</label>
             <br>
-            <select name="group_name" id="">
+            <select name="groups_id" id="">
                 <option value=>Seleccionar Grupo </option>
                 @foreach ($groups_id as $item1)
                 <option value="{{$item1->id}}">{{$item1->groups_name}}</option>

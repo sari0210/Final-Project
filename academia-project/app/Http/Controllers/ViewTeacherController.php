@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\Groups;
+
 use Illuminate\Support\Facades\Log;
 
 class ViewTeacherController extends Controller
@@ -17,8 +18,8 @@ class ViewTeacherController extends Controller
         //
           //$teacher = Teacher::all();
           //$groups_id=Groups::all();
-        $teacher = Teacher::join('groups','teachers.groups_id','groups.id')->join('schools','teachers.school_id','schools.id')
-        ->select('groups.groups_name as groups','schools.school_name as schools','students.id as id_students'
+        $teacher = Teacher::join('groups','teachers.groups_id','groups.id')
+        ->select('groups.groups_name as groups','teachers.id as id_teachers'
         ,'teachers.name','teachers.lastname','teachers.address',
         'teachers.phone_number','teachers.groups_id',
          'teachers.groups_id')->get();
@@ -34,7 +35,8 @@ class ViewTeacherController extends Controller
         //crear un nuevo maestro
         $teacher = Teacher::all();
         $groups_id=Groups::all();
-        return view("teacher.createTeacher", array("maestros"=>$teacher, "groups_id"=> $groups_id, "school_id"=>$school_id));
+       
+        return view("teacher.createTeacher", array("maestros"=>$teacher, "groups_id"=> $groups_id));
     }
 
     /**
@@ -78,8 +80,8 @@ class ViewTeacherController extends Controller
     {
         //
        // $teacher = Teacher::find("$id");
-        $teacher = Teacher::join('groups','students.groups_id','groups.id')
-        ->select('groups.groups_name as groups','students.id as id_students'
+        $teacher = Teacher::join('groups','teachers.groups_id','groups.id')
+        ->select('groups.groups_name as groups','teachers.id as id_teachers'
         ,'teachers.name','teachers.lastname','teachers.address',
         'teachers.phone_number','teachers.groups_id',
          'teachers.groups_id')->find($id);
@@ -101,7 +103,7 @@ class ViewTeacherController extends Controller
         $teacher-> phone_number = $request->post("phone_number");
         $teacher-> groups_id = $request->post("groups_id");
         $teacher->update();
-            return redirect("maestros");
+            return redirect()->route("maestros");
            
     }
 

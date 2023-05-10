@@ -59,11 +59,11 @@ Route :: put("/updateHomework/{id}" , [ViewHomeworkController:: class, "update"]
 Route :: delete("tareas/{id}" , [ViewHomeworkController:: class, "destroy"]);
 
 //rutas de maestros
-Route::get('/maestros', [ViewTeacherController:: class, "index"]);
-Route :: get('/maestros/create', [ViewTeacherController:: class, "create"]);
+Route::get('/maestros', [ViewTeacherController:: class, "index"])->name('maestros');
+Route :: get('/maestros/create', [ViewTeacherController:: class, "create"])->name('registro');
 Route :: post("/maestros" , [ViewTeacherController:: class, "store"]);
 Route :: get("/maestros/{id}" , [ViewTeacherController:: class, "edit"]);
-Route :: put("/updateMaestros/{id}" , [ViewTeacherController:: class, "update"]);
+Route :: put("/updateMaestros/{id}" , [ViewTeacherController:: class, "update"])->name('actualizarMaestro');
 Route :: delete("maestros/{id}" , [ViewTeacherController:: class, "destroy"]);
 
 

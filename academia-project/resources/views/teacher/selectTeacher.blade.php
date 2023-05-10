@@ -11,7 +11,7 @@
         <th scope="col">Lastname</th>
         <th scope="col">Address</th>
         <th scope="col">Phone number</th>
-        <th scope="col">Groups id</th>
+        <th scope="col">Groups Name</th>
       </tr>
     </thead>
     <tbody>
@@ -19,16 +19,16 @@
       <tr>
         
       
-        <th scope="row">{{$item->id}}</th> 
+        <th scope="row">{{$item->id_teachers}}</th> 
         <td >{{$item->name}}</td>
         <td>{{$item->lastname}}</td>
         <td >{{$item->address}}</td>
         <td >{{$item->phone_number}}</td>
-        <td >{{$item->groups_id}}</td>
+        <td >{{$item->groups}}</td>
         
       
-        <td><a href="{{url('maestros/'.$item->id)}}" class="btn btn-warning btn-edicion">Edit</a>
-           <form action="{{url('maestros/'.$item->id)}}" method="post">
+        <td><a href="{{url('maestros/'.$item->id_teachers)}}" class="btn btn-warning btn-edicion">Edit</a>
+           <form action="{{url('maestros/'.$item->id_teachers)}}" method="post">
            
             @csrf 
             @method("Delete")
@@ -40,9 +40,9 @@
     </tbody>
   </table>
   <div>
-    <a href="{{url('maestros/create')}}" values="Add Teacher" class="btn btn-success"> Add Teacher</a>
+    <a href="{{route('registro')}}" values="Add Teacher" class="btn btn-success"> Add Teacher</a>
 
-  </div>
+  </div><br><br><br>
 </div>
     @endsection
    
