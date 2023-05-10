@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ViewAdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewCourseController;
 use App\Http\Controllers\ViewStudentController;
@@ -85,4 +86,14 @@ Route :: post("/escuelas" , [ViewSchoolController:: class, "store"]);
 Route :: get("/escuelas/{id}" , [ViewSchoolController:: class, "edit"]);
 Route :: put("/updateSchool/{id}" , [ViewSchoolController:: class, "update"]);
 Route :: delete("escuelas/{id}" , [ViewSchoolController:: class, "destroy"]);
+
+//RUTAS ADMIN
+
+Route::get('/', function () {
+    return view('login');
+})->name('usuario.login');
+
+Route::get('/index', [ViewAdminController:: class, "index"]);
+Route::get('/acceso', [UsuariosController::class, 'iniciarSesion'])->name('inicio_sesion');
+Route::delete('/logout',[UsuariosController::class, 'destroy'])->name('cerrar_sesion');
 ?>

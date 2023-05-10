@@ -12,15 +12,33 @@ class ViewAdminController extends Controller
      */
     public function index()
     {
+        return view('index');
         //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
+    public function iniciarSesion(Request $request){
+        $usser=$request->post('usser');
+        $pass=$request->post('pass');
+        $status=$request->post('status');
+
+        $admin = Admin::where("usser","=",$usser)->where("usser","=",$usser)->where("pass","=",$pass)->where("status","=",$status)->get();
+
+        foreach($admin as  $value){
+            session(['usuario_id'=>$value->id]);
+            session(['usuario_nombre' => $value->usser]);
+            
+        return redirect()->route('index');
+        }
+
         //
+    }
+    public function destroy(Request $request){
+        //Session::destroy(['usuario_id','usuario_nombre']);
+        $request->session()->forget(['usuario_id', 'usuario_nombre']);
+        return redirect()->route('usuario.login');
     }
 
     /**
@@ -58,8 +76,5 @@ class ViewAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+    
 }
