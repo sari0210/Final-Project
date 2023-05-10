@@ -17,15 +17,15 @@
       <tr>
         
       
-        <th scope="row">{{$item->id}}</th> 
+        <th scope="row">{{$item->homework_id}}</th> 
         <td >{{$item->status}}</td>
-        <td >{{$item->student_id}}</td>
-        <td >{{$item->course_id}}</td>
+        <td >{{$item->alumno}}</td>
+        <td >{{$item->curso}}</td>
         
         
       
-        <td><a href="{{url('tareas/'.$item->id)}}" class="btn btn-warning btn-edicion">Edit</a>
-           <form action="{{url('tareas/'.$item->id)}}" method="post">
+        <td><a href="{{url('tareas/'.$item->homework_id)}}" class="btn btn-warning btn-edicion">Edit</a>
+           <form action="{{url('tareas/'.$item->homework_id)}}" method="post">
            
             @csrf 
             @method("Delete")

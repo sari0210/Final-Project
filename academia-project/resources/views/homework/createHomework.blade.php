@@ -14,9 +14,9 @@
 
             <label for="" class="form-label">Students</label>
             <br>
-            <select name="student_name" id="">
+            <select name="student_id" id="">
                 <option value=>Seleccionar Estudiante</option>
-                @foreach ($nombre_estudiante as $item1)
+                @foreach ($student_name as $item1)
                 <option value="{{$item1->id}}">{{$item1->name}}</option>
                 @endforeach
             </select>
@@ -24,10 +24,10 @@
 
             <label for="" class="form-label">Course Name</label>
             <br>
-            <select name="course_name" id="">
-                <option value=></option>
-                @foreach ($nombre_curso as $item1)
-                <option value="{{$item1->id}}">{{$item1->course_name}}</option>
+            <select name="course_id" id="">
+                <option value=>selecione el curso</option>
+                @foreach ($course_name as $item2)
+                <option value="{{$item2->id}}">{{$item2->course_name}}</option>
                 @endforeach
             </select>
             <br>

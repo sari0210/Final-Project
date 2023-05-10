@@ -18,11 +18,14 @@ class ViewInscriptionController extends Controller
     public function index()
     {
         //obtener lista de inscripcion 
-        $inscripciones = Inscription::all();
+       // $inscripciones = Inscription::all();
+        $inscripciones = Inscription::join('courses', 'inscriptions.course_id','courses.id')->join('students', 'inscriptions.student_id','students.id')->join('teachers', 'inscriptions.teacher_id','teachers.id')
+        ->select('courses.course_name as curso','students.name as alumno','teachers.name as maestro','inscriptions.id as inscript_id', 'inscriptions.course_id','inscriptions.student_id', 'inscriptions.teacher_id', 'inscriptions.inscrip_date')->get();
         $inscrip_curso = Course::all();
         $inscrip_alumno = Student::all();
         $inscrip_maestro = Teacher::all();
-        return view ("inscription.selectInscription", array("inscripciones" => $inscripciones, "inscrip_curso" => $inscrip_curso , "inscrip_alumno" => $inscrip_alumno , "inscrip_maestro" => $inscrip_maestro ));
+        return view ("inscription.selectInscription", array("inscripciones" => $inscripciones));
+        //"inscrip_curso" => $inscrip_curso , "inscrip_alumno" => $inscrip_alumno , "inscrip_maestro" => $inscrip_maestro 
     }
 
     /*public function getcurso()

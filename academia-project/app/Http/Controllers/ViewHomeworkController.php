@@ -16,10 +16,12 @@ class ViewHomeworkController extends Controller
     public function index()
     {
         //
-        $homework = Homeworks :: all();
+       // $homework = Homeworks :: all();
+        $homework = Homeworks::join('courses', 'homeworks.course_id','courses.id')->join('students', 'homeworks.student_id','students.id')
+        ->select('courses.course_name as curso','students.name as alumno', 'homeworks.id as homework_id', 'homeworks.status','homeworks.course_id','homeworks.student_id')->get();
         $student_name=Student:: all();
         $course_name=Course::all();
-        return view("homework.selectHomework", array ("tareas"=> $homework, "nombre_estudiante"=>$student_name, "nombre_curso" =>$course_name));
+        return view("homework.selectHomework", array ("tareas"=> $homework));
         
         
     }
@@ -34,7 +36,7 @@ class ViewHomeworkController extends Controller
         $student_name=Student::all();
         $course_name=Course::all();
 
-        return view ("homework.createHomework", array("tareas"=> $homework, "nombre_estudiante"=>$student_name, "nombre_curso" =>$course_name) );
+        return view ("homework.createHomework", array("tareas"=> $homework, "student_name"=>$student_name, "course_name" =>$course_name) );
     }
 
     /**
@@ -44,9 +46,9 @@ class ViewHomeworkController extends Controller
     {
         //
         $homework = new Homeworks;
-        $homework->status = $request->status;
-        $homework->student_id = $request->student_id;
-        $homework->course_id= $request->course_id;
+        $homework->status=$request->status;
+        $homework->student_id=$request->student_id;
+        $homework->course_id=$request->course_id;
 
         if ($homework != null){
             $homework-> save();
@@ -70,10 +72,12 @@ class ViewHomeworkController extends Controller
     public function edit(string $id)
     {
         //
-        $homework = Homeworks::find($id);
+        //$homework = Homeworks::find($id);
+        $homework = Homeworks::join('courses', 'homeworks.course_id','courses.id')->join('students', 'homeworks.student_id','students.id')
+        ->select('courses.course_name as curso','students.name as alumno', 'homeworks.id as homework_id', 'homeworks.status','homeworks.student_id','homeworks.course_id')->find($id);
         $student_name=Student::all();
         $course_name=Course::all();
-        return view("homework.editHomework",array("tareas"=> $homework, "nombre_estudiante"=>$student_name, "nombre_curso" =>$course_name));
+        return view("homework.editHomework",array("tareas"=> $homework, "student_name"=>$student_name, "course_name" =>$course_name));
     }
 
     /**
@@ -86,8 +90,9 @@ class ViewHomeworkController extends Controller
         $homework-> status = $request-> post ("status");
         $homework->student_id = $request->post("student_id");
         $homework->course_id= $request->post("course_id");
-        
+        $homework->update();
             return redirect("tareas");
+
            
     }
 

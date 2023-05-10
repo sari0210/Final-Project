@@ -17,15 +17,15 @@
       <tr>
         
       
-        <th scope="row">{{$item->id}}</th> 
-        <td>{{$item->course_id}}</td>
-        <td>{{$item->student_id}}</td>
-        <td>{{$item->teacher_id}}</td>
+        <th scope="row">{{$item->inscript_id}}</th> 
+        <td>{{$item->curso}}</td>
+        <td>{{$item->alumno}}</td>
+        <td>{{$item->maestro}}</td>
         <td>{{$item->inscrip_date}}</td>
       
         <td>
             <!-- hacemos referencia al nombre de la ruta para editar el curso -->
-            <form action="{{ route('edit', $item->id) }}" method="POST">
+            <form action="{{route('edit', $item->inscript_id) }}" method="POST">
                 <!-- especificando el tipo de peticion -->
                 @method('GET')
                 @csrf <!-- token para autorizar la peticion -->
@@ -34,7 +34,7 @@
         </td>
 
         <td>
-            <form action="{{ route('deleteInscrip', $item->id) }}" method="POST">
+            <form action="{{ route('deleteInscrip', $item->inscript_id) }}" method="POST">
             @method('DELETE')
             @csrf
             <button class="btn btn-danger"><i class="bi bi-trash-fill"></i> Delete</button>

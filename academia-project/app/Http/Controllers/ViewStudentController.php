@@ -24,6 +24,7 @@ class ViewStudentController extends Controller
         ,'students.name','students.lastname','students.age','students.address',
         'students.responsible_name','students.phone_number','students.groups_id',
          'students.school_id','students.groups_id')->get();
+         
       return view("student.selectStudent", array ('estudiantes'=>$pupil));
      //return redirect()->route('student.selectStudent', array('estudiantes'=>$pupil));
      
@@ -99,10 +100,10 @@ class ViewStudentController extends Controller
        
         //$pupil = Student::find("$id");
         $pupil = Student::join('groups','students.groups_id','groups.id')->join('schools','students.school_id','schools.id')
-        ->select('groups.groups_name as groups','students.id as id_students'
+        ->select('groups.groups_name as groups','schools.school_name as schools','students.id as id_students'
         ,'students.name','students.lastname','students.age','students.address',
         'students.responsible_name','students.phone_number','students.groups_id',
-         'students.school_id','students.groups_id')->find($id);
+         'students.school_id')->find($id);
         $groups_id=Groups::all();
         $school_id=School::all();
         
@@ -130,23 +131,7 @@ class ViewStudentController extends Controller
         return redirect()->route("estudiantes");
         
     }
-   /* public function update(Request $request, string $id)
-{
-    $pupil = Student::find($id);
-    $pupil->name = $request->input('name');
-    $pupil->lastname = $request->input('lastname');
-    $pupil->age = $request->input('age');
-    $pupil->address = $request->input('address');
-    $pupil->responsible_name = $request->input('responsible_name');
-    $pupil->phone_number = $request->input('phone_number');
-    $pupil->groups_id = $request->input('groups_id');
-    $pupil->school_id = $request->input('school_id');
-    $pupil->save();
 
- 
-
-    return redirect('estudiantes')->with('success', 'Estudiante actualizado exitosamente.');
-}*/
 
     /**
      * Remove the specified resource from storage.

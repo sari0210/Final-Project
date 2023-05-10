@@ -27,7 +27,7 @@
             <select name="groups_id" id="">
                 <option value="{{$estudiantes->groups_id}}">{{$estudiantes->groups}}</option>
                 @foreach ($groups_id as $item1)
-                <option value="{{$item1->groups_id}}">{{$item1->groups_name}}</option>
+                <option value="{{$item1->id}}">{{$item1->groups_name}}</option>
                 @endforeach
             </select>
             <br>
@@ -35,9 +35,9 @@
             <label for="" class="form-label">School Name</label>
             <br>
             <select name="school_id" id="">
-                <option value="{{$estudiantes->id}}">{{$estudiantes->school_name}}</option>
-                @foreach ($school_id as $item1)
-                <option value="{{$item1->id}}">{{$item1->school_name}}</option>
+                <option value="{{$estudiantes->school_id}}">{{$estudiantes->schools}}</option>
+                @foreach ($school_id as $item2)
+                <option value="{{$item2->id}}">{{$item2->school_name}}</option>
                 @endforeach
             </select>
             <br>

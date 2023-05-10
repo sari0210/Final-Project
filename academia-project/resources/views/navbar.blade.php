@@ -5,25 +5,25 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ url('cursos') }}">Cursos</a>
+          <a class="nav-link active" aria-current="page" href="{{ url('cursos') }}">Course</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('grupos') }}">Grupos</a>
+          <a class="nav-link" href="{{ url('grupos') }}">Groups</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('tareas') }}">Tareas</a>
+          <a class="nav-link" href="{{ url('tareas') }}">Homeworks</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('inscripciones') }}">Inscripcion</a>
+          <a class="nav-link" href="{{ url('inscripciones') }}">Inscriptions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('escuelas') }}">Escuela</a>
+          <a class="nav-link" href="{{ url('escuelas') }}">School</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('estudiantes') }}">Estudiante</a>
+          <a class="nav-link" href="{{ url('estudiantes') }}">Students</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('maestros') }}">Maestro</a>
+          <a class="nav-link" href="{{ url('maestros') }}">Teacher</a>
         </li>
       </ul>
     </div>

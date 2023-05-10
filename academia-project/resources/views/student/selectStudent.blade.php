@@ -1,5 +1,8 @@
 @extends('student.students')
 @section('content')
+
+
+
 <div class="container">
 <table class="table">
     <thead>
@@ -30,18 +33,22 @@
         <td>{{$item->responsible_name}}</td>
         <td >{{$item->phone_number}}</td>
         <td >{{$item->groups}}</td>
-      
         <td >{{$item->schools}}</td>
         
       
-        <td><a href="{{url('estudiantes/'.$item->id_students)}}" class="btn btn-warning btn-edicion">Edit</a>
-           <form action="{{url('estudiantes/'.$item->id_students)}}" method="post">
-           
+        <td>
+          <a href="{{url('estudiantes/'.$item->id_students)}}" class="btn btn-warning btn-edicion">Edit</a>
+        </td>  
+        
+        <td>
+          <form action="{{url('estudiantes/'.$item->id_students)}}" method="post">
             @csrf 
             @method("Delete")
             <button class="btn btn-danger btn-edicion" type="submit">Delete</button>
         </form>
      
+        </td>
+          
       </tr>
        @endforeach
     </tbody>
