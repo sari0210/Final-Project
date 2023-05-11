@@ -10,9 +10,9 @@ class ViewAdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function getPlantilla()
     {
-        return view('index');
+        return view('plantilla');
         //
     }
 
@@ -30,7 +30,7 @@ class ViewAdminController extends Controller
             session(['usuario_id'=>$value->id]);
             session(['usuario_nombre' => $value->usser]);
             
-        return redirect()->route('index');
+        return redirect()->route('template');
         }
 
         //

@@ -89,11 +89,14 @@ Route :: delete("escuelas/{id}" , [ViewSchoolController:: class, "destroy"]);
 
 //RUTAS ADMIN
 
-Route::get('/', function () {
-    return view('login');
-})->name('usuario.login');
+//Route::get('/', function () {
+    //return view('login');
+//})->name('usuario.login');
 
-Route::get('/index', [ViewAdminController:: class, "index"]);
+//Route::get('/plantilla', [ViewAdminController::class, 'getPlantilla'])->name('template');
+//Route::get('/acceso', [ViewAdminController::class, 'iniciarSesion'])->name('inicio_sesion');
+//Route::delete('/logout',[ViewAdminController::class, 'destroy'])->name('cerrar_sesion');
+/*Route::get('/plantilla', [ViewAdminController:: class, "index"]);
 Route::get('/acceso', [UsuariosController::class, 'iniciarSesion'])->name('inicio_sesion');
-Route::delete('/logout',[UsuariosController::class, 'destroy'])->name('cerrar_sesion');
+Route::delete('/logout',[UsuariosController::class, 'destroy'])->name('cerrar_sesion');*/
 ?>

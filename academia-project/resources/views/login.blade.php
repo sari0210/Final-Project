@@ -23,9 +23,11 @@
                         <img src="{{ url('/') }}/img/usuario.png" alt="logo" id="logo">
                     </div>
                     <label for=""><i class="bi bi-envelope"></i> Correo Electronico</label>
-                    <input type="text" class="form-control" name="correo" placeholder="Ingrese su correo electronico" required><br>
+                    <input type="text" class="form-control" name="usser" placeholder="Ingrese su usuario" required><br>
                     <label for=""><i class="bi bi-key"></i> Contraseña</label>
-                    <input type="password" class="form-control" name="password" placeholder="Ingrese su contraseña" required><br>
+                    <input type="password" class="form-control" name="pass" placeholder="Ingrese su contraseña" required><br>
+                    <label for=""><i class="bi bi-key"></i> Contraseña</label>
+                    <input type="text" class="form-control" name="status" placeholder="Indicar su estado" required><br>
                     <input type="submit" class="btn btn-primary" value="Iniciar Sesion">
                 </div>
             </form>
