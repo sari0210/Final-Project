@@ -11,11 +11,12 @@
             
             <label for="" class="form-label">Status</label>
             <input type="text" name="status" id="status" class="form-control">
+            <br>
 
             <label for="" class="form-label">Students</label>
             <br>
-            <select name="student_id" id="">
-                <option value=>Seleccionar Estudiante</option>
+            <select name="student_id" class="form-select" aria-label="Default select example">
+                <option selected>Seleccionar Estudiante</option>
                 @foreach ($student_name as $item1)
                 <option value="{{$item1->id}}">{{$item1->name}}</option>
                 @endforeach
@@ -24,8 +25,8 @@
 
             <label for="" class="form-label">Course Name</label>
             <br>
-            <select name="course_id" id="">
-                <option value=>selecione el curso</option>
+            <select name="course_id" class="form-select" aria-label="Default select example">
+                <option selected>Selecione el curso</option>
                 @foreach ($course_name as $item2)
                 <option value="{{$item2->id}}">{{$item2->course_name}}</option>
                 @endforeach

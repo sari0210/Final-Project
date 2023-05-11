@@ -24,7 +24,7 @@
 
             <label for="" class="form-label">Group Name</label>
             <br>
-            <select name="groups_id" id="">
+            <select name="groups_id" id="" class="form-select" aria-label="Default select example">
                 <option value="{{$estudiantes->groups_id}}">{{$estudiantes->groups}}</option>
                 @foreach ($groups_id as $item1)
                 <option value="{{$item1->id}}">{{$item1->groups_name}}</option>
@@ -34,7 +34,7 @@
 
             <label for="" class="form-label">School Name</label>
             <br>
-            <select name="school_id" id="">
+            <select name="school_id" id="" class="form-select" aria-label="Default select example">
                 <option value="{{$estudiantes->school_id}}">{{$estudiantes->schools}}</option>
                 @foreach ($school_id as $item2)
                 <option value="{{$item2->id}}">{{$item2->school_name}}</option>

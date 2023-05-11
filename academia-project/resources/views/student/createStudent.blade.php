@@ -23,8 +23,8 @@
             <input type="text" name="phone_number" id="phone_number" class="form-control">
             <label for="" class="form-label">Group Name</label>
             <br>
-            <select name="groups_id" id="">
-                <option value=>Seleccionar Grupo</option>
+            <select name="groups_id" id="" class="form-select" aria-label="Default select example">
+                <option value="" selected>Seleccionar Grupo</option>
                 @foreach ($groups_id as $item)
                 <option value="{{$item->id}}">{{$item->groups_name}}</option>
                 @endforeach
@@ -33,8 +33,8 @@
 
             <label for="" class="form-label">School Name</label>
             <br>
-            <select name="school_id" id="">
-                <option value=>Seleccionar Escuela</option>
+            <select name="school_id" id="" class="form-select" aria-label="Default select example">
+                <option value="" selected>Seleccionar Escuela</option>
                 @foreach ($school_id as $item1)
                 <option value="{{$item1->id}}">{{$item1->school_name}}</option>
                 @endforeach

@@ -19,7 +19,7 @@
 
             <label for="" class="form-label">Group Name</label>
             <br>
-            <select name="groups_id" id="">
+            <select name="groups_id" id="" class="form-select" aria-label="Default select example">
                 <option value="{{$maestros->groups_id}}">{{$maestros->groups}}</option>
                 @foreach ($groups_id as $item1)
                 <option value="{{$item1->id}}">{{$item1->groups_name}}</option>

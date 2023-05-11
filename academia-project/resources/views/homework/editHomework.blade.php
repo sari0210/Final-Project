@@ -10,10 +10,11 @@
             @csrf
             <label for="" class="form-label">Estado</label>
             <input type="text" name="status" id="status" class="form-control" value="{{ $tareas->status}}">
+            <br>
 
             <label for="" class="form-label">Student Name</label>
             <br>
-            <select name="student_id" id="">
+            <select name="student_id" id="" class="form-select" aria-label="Default select example">
                 <option value="{{$tareas->student_id}}">{{$tareas->alumno}}</option>
                 @foreach ($student_name as $item1)
                 <option value="{{$item1->id}}">{{$item1->name}}</option>
@@ -23,7 +24,7 @@
 
             <label for="" class="form-label">Course Name</label>
             <br>
-            <select name="course_id" id="">
+            <select name="course_id" id="" class="form-select" aria-label="Default select example">
                 <option value="{{$tareas->course_id}}">{{$tareas->curso}}</option>
                 @foreach ($course_name as $item2)
                 <option value={{$item2->id}}>{{$item2->course_name}}</option>
