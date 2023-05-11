@@ -11,13 +11,15 @@
 <body>
     <div class="container">
         <div class="d-flex justify-content-center mt-5">
-            <form action="{{ route('inicio_sesion') }}" method="POST" id="login" class="w-50 p-3 my-3">
+            <form action="{{ route('home') }}" method="POST" id="login" class="w-50 p-3 my-3">
                 @method('GET')
                 <!-- p-4: padding de 1.5rem 
                     1 rem = 16px
                     0.5 rem = 8px
+                    
 
                 -->
+               
                 <div class="p-4">
                     <div class="text-center">
                         <img src="{{ url('/') }}/img/usuario.png" alt="logo" id="logo">
@@ -26,9 +28,8 @@
                     <input type="text" class="form-control" name="usser" placeholder="Ingrese su usuario" required><br>
                     <label for=""><i class="bi bi-key"></i> Contraseña</label>
                     <input type="password" class="form-control" name="pass" placeholder="Ingrese su contraseña" required><br>
-                    <label for=""><i class="bi bi-key"></i> Contraseña</label>
-                    <input type="text" class="form-control" name="status" placeholder="Indicar su estado" required><br>
-                    <input type="submit" class="btn btn-primary" value="Iniciar Sesion">
+                    
+                    <input type="submit" class="btn btn-primary" value="Iniciar sesion">
                 </div>
             </form>
         </div>

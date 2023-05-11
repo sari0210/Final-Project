@@ -15,22 +15,27 @@ class ViewAdminController extends Controller
         return view('plantilla');
         //
     }
-
+    public function getInicio()
+    {
+        return view('index');
+        //
+    }
+    
     /**
      * Show the form for creating a new resource.
      */
     public function iniciarSesion(Request $request){
-        $usser=$request->post('usser');
+        $user=$request->post('user');
         $pass=$request->post('pass');
         $status=$request->post('status');
 
-        $admin = Admin::where("usser","=",$usser)->where("usser","=",$usser)->where("pass","=",$pass)->where("status","=",$status)->get();
+        $admin = Admin::where("user","=",$user)->where("pass","=",$pass)->where("status","=",$status)->get();
 
         foreach($admin as  $value){
             session(['usuario_id'=>$value->id]);
-            session(['usuario_nombre' => $value->usser]);
+            session(['usuario_nombre' => $value->user]);
             
-        return redirect()->route('template');
+        return redirect()->route('home');
         }
 
         //

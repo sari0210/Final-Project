@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
 <link rel="stylesheet" href="{{ asset('css/formularios.css') }}">
 
 <h1>Bienvenid@</h1>
+
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -38,10 +40,12 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url('maestros') }}">Teacher</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('login') }}">Login</a>
-        </li>
       </ul>
+      <form class="d-flex" action="{{ route('cerrar_sesion') }}" method="POST">
+            @method('DELETE')
+            @csrf
+          <button class="btn btn-danger" type="submit">Cerrar Sesion</button>
+        </form>
     </div>
   </div>
 </nav>
