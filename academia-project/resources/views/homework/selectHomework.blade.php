@@ -7,8 +7,8 @@
       <tr>
       <th scope="col">ID</th>
         <th scope="col">Status</th>
-        <th scope="col">Student ID</th>
-        <th scope="col">Course ID</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Course Name</th>
         
       </tr>
     </thead>

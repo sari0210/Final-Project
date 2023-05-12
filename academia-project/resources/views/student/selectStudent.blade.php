@@ -15,9 +15,9 @@
         <th scope="col">Address</th>
         <th scope="col">Responsible name</th>
         <th scope="col">Phone number</th>
-        <th scope="col">Groups ID</th>
+        <th scope="col">Group Name</th>
        
-        <th scope="col">School id</th>
+        <th scope="col">School Name</th>
       </tr>
     </thead>
     <tbody>

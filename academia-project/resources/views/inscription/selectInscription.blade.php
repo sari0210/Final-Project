@@ -6,9 +6,9 @@
 
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Course id</th>
-        <th scope="col">Student id</th>
-        <th scope="col">Teacher Id</th>
+        <th scope="col">Course Name</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Teacher Name</th>
         <th scope="col">Fecha de inscripcion</th>
       </tr>
     </thead>
