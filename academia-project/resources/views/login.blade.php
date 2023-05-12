@@ -20,9 +20,10 @@
 
                 -->
                
-                <div class="p-4">
+                <div class="p-4" style="border: 1px solid #ced4da; border-radius: 12px;">
+                    
                     <div class="text-center">
-                        <img src="{{ url('/') }}/img/usuario.png" alt="logo" id="logo">
+                        <img src="/img/user.png" alt="logo" id="logo" style="height: 75px; width: 75px; margin-bottom: 35px; opacity: 0.6">
                     </div>
                     <label for=""><i class="bi bi-envelope"></i> Correo Electronico</label>
                     <input type="text" class="form-control" name="usser" placeholder="Ingrese su usuario" required><br>
