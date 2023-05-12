@@ -45,13 +45,39 @@ class ViewAdminController extends Controller
         $request->session()->forget(['usuario_id', 'usuario_nombre']);
         return redirect()->route('usuario.login');
     }
+ 
+    /**
+     * Store a newly created resource in storage.
+     */
+
+     public function create()
+    {  
+        //crear un nuevo administrador
+        $admin = Admin::all();
+       
+        return view("admin.createAdmin");
+    }
 
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
         //
+        $admin = new Admin;
+        $admin-> user = $request->user;
+        $admin-> pass = $request->pass;
+        $admin-> status = $request->status;
+        
+        
+        //GUARDAR DATOS EN NUESTRA TABLA 
+        if($admin != null){
+         $admin-> save();
+         return redirect("administrador");
+        }else {
+         return "error on save";
+        }
     }
 
     /**
@@ -76,6 +102,12 @@ class ViewAdminController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $admin =Admin::find("$id");
+        $admin-> user = $request-> post("user");
+        $admin-> pass = $request-> post ("pass");
+        $admin-> status = $request-> post ("status");
+        $admin->update();
+            return redirect()->route("administrador");
     }
 
     /**
