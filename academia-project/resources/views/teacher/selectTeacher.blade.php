@@ -42,7 +42,7 @@
   <div>
     <a href="{{route('registro')}}" values="Add Teacher" class="btn btn-success"> Add Teacher</a>
 
-  </div><br><br><br>
+  
 </div>
     @endsection
    

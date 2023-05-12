@@ -25,7 +25,7 @@
                 <option value="{{$item1->id}}">{{$item1->groups_name}}</option>
                 @endforeach
             </select>
-            <br>
+            
             
            
             <input type="submit" value="Add Teacher" class="btn btn-success btn-add" >
