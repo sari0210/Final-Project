@@ -12,6 +12,11 @@ class ViewAdminController extends Controller
      * Display a listing of the resource.
      * 
      */
+    public function getPlantilla()
+    {
+        return view('plantilla');
+        //
+    }
 
      public function getInicio()
     {
@@ -76,11 +81,7 @@ class ViewAdminController extends Controller
 
 
      
-    public function getPlantilla()
-    {
-        return view('plantilla');
-        //
-    }
+   
     
 
    

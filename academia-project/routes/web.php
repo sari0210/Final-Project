@@ -99,7 +99,7 @@ Route::delete('/logout',[ViewAdminController::class, 'destroy'])->name('cerrar_s
 /*Route::get('/plantilla', [ViewAdminController:: class, "index"]);
 Route::get('/acceso', [UsuariosController::class, 'iniciarSesion'])->name('inicio_sesion');
 Route::delete('/logout',[UsuariosController::class, 'destroy'])->name('cerrar_sesion');*/
-Route::get('/index', [ViewAdminController::class, 'getInicio'])->name('home');
+Route::get('/index', [ViewAdminController::class, 'getInicio'])->name('Home');
 
 
 //RUTAS ADMIN

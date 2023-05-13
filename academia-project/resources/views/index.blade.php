@@ -41,10 +41,17 @@
           <a class="nav-link" href="{{ url('maestros') }}">Teacher</a>
         </li>
       </ul>
-      <form class="d-flex" action="{{ route('/') }}" method="POST">
+      <form class="d-flex" action="{{ url('/') }}">
             
             @csrf
-          <button class="btn btn-danger" type="submit">Cerrar Sesion</button>
+          <button class="btn btn-danger mx-4" type="submit">Cerrar Sesion</button>
+          
+        </form>
+        <form class="d-flex" action="{{ route('usuarios') }}">
+            
+            @csrf
+          <button class="btn btn-primary mx-4" type="submit">Add Maestros</button>
+          
         </form>
     </div>
   </div>
