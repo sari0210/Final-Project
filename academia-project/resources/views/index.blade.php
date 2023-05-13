@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ url('cursos') }}">Course</a>
+          <a class="nav-link " aria-current="page" href="{{ url('cursos') }}">Course</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url('grupos') }}">Groups</a>
@@ -50,12 +50,19 @@
         <form class="d-flex" action="{{ route('usuarios') }}">
             
             @csrf
-          <button class="btn btn-primary mx-4" type="submit">Add Maestros</button>
+          <button class="btn btn-primary mx-4" type="submit">Add New User</button>
           
         </form>
+
+        
     </div>
   </div>
 </nav>
+<div>
+  <img src="{{ url('/') }}/img/academia.jpg" class="rounded mx-auto d-block" alt="...">
+</div>
+
+
 
 <div class="container-fluid">
   @yield('contentP')

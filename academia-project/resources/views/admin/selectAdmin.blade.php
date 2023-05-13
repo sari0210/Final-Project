@@ -1,6 +1,10 @@
 @extends('admin.admin')
 @section('content')
   <div class="container">
+    <div>
+      <a href="{{url('usuarios/create')}}" values="Add user" class="btn btn-success"> Add User</a>
+  
+    </div>
   <table class="table">
    
     <thead>
@@ -8,8 +12,10 @@
       <tr>
       <th scope="col">ID</th>
         <th scope="col">usuario</th>
-        <td scope="col">Contraseña</td>
-        <td scope="col">Estado</td>
+        <th scope="col">Contraseña</th>
+        <th scope="col">Estado</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -38,10 +44,7 @@
        @endforeach
     </tbody>
   </table>
-  <div>
-    <a href="{{url('usuarios/create')}}" values="Add user" class="btn btn-success"> Add User</a>
 
-  </div>
   </div>
 
     @endsection

@@ -9,6 +9,7 @@ use App\Http\Controllers\ViewHomeworkController;
 use App\Http\Controllers\ViewInscriptionController;
 use App\Http\Controllers\ViewTeacherController;
 use App\Http\Controllers\ViewSchoolController;
+use App\Http\Controllers\userController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -93,13 +94,13 @@ Route::get('/', function () {
     return view('login');
 })->name('usuario.login');
 
-Route::get('/plantilla', [ViewAdminController::class, 'getPlantilla'])->name('template');
-Route::get('/acceso', [ViewAdminController::class, 'iniciarSesion'])->name('inicio_sesion');
-Route::delete('/logout',[ViewAdminController::class, 'destroy'])->name('cerrar_sesion');
+Route::get('/plantilla', [userController::class, 'getPlantilla'])->name('template');
+Route::get('/acceso', [userController::class, 'iniciarSesion'])->name('inicio_sesion');
+Route::delete('/logout',[userController::class, 'destroy'])->name('cerrar_sesion');
 /*Route::get('/plantilla', [ViewAdminController:: class, "index"]);
 Route::get('/acceso', [UsuariosController::class, 'iniciarSesion'])->name('inicio_sesion');
 Route::delete('/logout',[UsuariosController::class, 'destroy'])->name('cerrar_sesion');*/
-Route::get('/index', [ViewAdminController::class, 'getInicio'])->name('Home');
+Route::get('/index', [userController::class, 'getInicio'])->name('Home');
 
 
 //RUTAS ADMIN

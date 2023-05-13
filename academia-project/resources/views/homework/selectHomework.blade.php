@@ -1,6 +1,9 @@
 @extends('homework.homework')
 @section('content_h')
 <div class="container">
+  <div>
+    <a href="{{url('tareas/create')}}" values="Add Group" class="btn btn-success "> Add Tarea</a>
+  </div>
 <table class="table">
     <thead>
 
@@ -9,6 +12,8 @@
         <th scope="col">Status</th>
         <th scope="col">Student Name</th>
         <th scope="col">Course Name</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
         
       </tr>
     </thead>
@@ -24,21 +29,24 @@
         
         
       
-        <td><a href="{{url('tareas/'.$item->homework_id)}}" class="btn btn-warning btn-edicion">Edit</a>
-           <form action="{{url('tareas/'.$item->homework_id)}}" method="post">
+        <td>
+          <a href="{{url('tareas/'.$item->homework_id)}}" class="btn btn-warning btn-edicion">Edit</a>
+        </td>
+        <td>
+          <form action="{{url('tareas/'.$item->homework_id)}}" method="post">
            
             @csrf 
             @method("Delete")
             <button class="btn btn-danger btn-edicion" type="submit">Delete</button>
         </form>
+       </td>  
+         
      
       </tr>
        @endforeach
     </tbody>
   </table>
-  <div>
-    <a href="{{url('tareas/create')}}" values="Add Group" class="btn btn-success"> Add Tarea</a>
-  </div>
+ 
 </div>
     @endsection
 

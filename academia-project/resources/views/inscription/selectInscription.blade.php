@@ -1,6 +1,11 @@
 @extends('inscription.inscription')
 @section('content')
   <div class="container">
+    <div>
+      <a href="{{url('inscripciones/create')}}" values="Add Course" class="btn btn-success"> Add Inscription</a>
+  
+    </div>
+    <br>
   <table class="table">
     <thead>
 
@@ -10,6 +15,8 @@
         <th scope="col">Student Name</th>
         <th scope="col">Teacher Name</th>
         <th scope="col">Fecha de inscripcion</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -47,10 +54,7 @@
        @endforeach
     </tbody>
   </table>
-  <div>
-    <a href="{{url('inscripciones/create')}}" values="Add Course" class="btn btn-success"> Add Inscription</a>
-
-  </div>
+ 
   </div>
     @endsection
    

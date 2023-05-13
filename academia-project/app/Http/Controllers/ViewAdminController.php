@@ -14,7 +14,8 @@ class ViewAdminController extends Controller
      */
 
      //FUNCIONES USUARIOS
-    public function getPlantilla()
+
+/*     public function getPlantilla()
     {
         return view('plantilla');
         //
@@ -28,7 +29,7 @@ class ViewAdminController extends Controller
     
     /**
      * Show the form for creating a new resource.
-     */
+     
     public function iniciarSesion(Request $request){
         $user=$request->post('user');
         $pass=$request->post('pass');

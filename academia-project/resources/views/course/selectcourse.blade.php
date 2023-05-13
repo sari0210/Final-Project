@@ -1,13 +1,19 @@
 @extends('course.course')
 @section('content')
   <div class="container">
+    <div>
+      <a href="{{url('cursos/create')}}" values="Add Course" class="btn btn-success"> Add Course</a>
+  
+    </div>
   <table class="table">
    
     <thead>
 
       <tr>
         <th scope="col">ID</th>
-        <td scope="col">Course Name</td>
+        <td scope="col"> <b>Course Name</b></td>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -34,10 +40,7 @@
        @endforeach
     </tbody>
   </table>
-  <div>
-    <a href="{{url('cursos/create')}}" values="Add Course" class="btn btn-success"> Add Course</a>
-
-  </div>
+ 
   </div>
 
     @endsection

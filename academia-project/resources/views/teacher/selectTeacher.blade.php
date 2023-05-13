@@ -2,6 +2,12 @@
 @section('content')
 
 <div class="container">
+
+  <div>
+    <a href="{{route('registro')}}" values="Add Teacher" class="btn btn-success"> Add Teacher</a>
+
+  </div>
+  <br>
 <table class="table">
     <thead>
 
@@ -12,6 +18,8 @@
         <th scope="col">Address</th>
         <th scope="col">Phone number</th>
         <th scope="col">Groups Name</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -27,22 +35,24 @@
         <td >{{$item->groups}}</td>
         
       
-        <td><a href="{{url('maestros/'.$item->id_teachers)}}" class="btn btn-warning btn-edicion">Edit</a>
-           <form action="{{url('maestros/'.$item->id_teachers)}}" method="post">
+        <td>
+          <a href="{{url('maestros/'.$item->id_teachers)}}" class="btn btn-warning btn-edicion">Edit</a>
+        </td>
+        <td>
+          <form action="{{url('maestros/'.$item->id_teachers)}}" method="post">
            
             @csrf 
             @method("Delete")
             <button class="btn btn-danger btn-edicion" type="submit">Delete</button>
         </form>
+        </td>  
+        
      
       </tr>
        @endforeach
     </tbody>
   </table>
-  <div>
-    <a href="{{route('registro')}}" values="Add Teacher" class="btn btn-success"> Add Teacher</a>
 
-  
 </div>
     @endsection
    

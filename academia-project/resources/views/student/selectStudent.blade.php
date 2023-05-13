@@ -4,6 +4,11 @@
 
 
 <div class="container">
+  <div>
+    <a href="{{route('registrar')}}" values="Add Student" class="btn btn-success"> Add Student</a>
+
+  </div>
+  <br>
 <table class="table">
     <thead>
 
@@ -16,8 +21,9 @@
         <th scope="col">Responsible name</th>
         <th scope="col">Phone number</th>
         <th scope="col">Group Name</th>
-       
         <th scope="col">School Name</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -53,10 +59,7 @@
        @endforeach
     </tbody>
   </table>
-  <div>
-    <a href="{{route('registrar')}}" values="Add Student" class="btn btn-success"> Add Student</a>
-
-  </div>
+ 
 </div>
     @endsection
    
