@@ -12,6 +12,8 @@ class ViewAdminController extends Controller
      * Display a listing of the resource.
      * 
      */
+
+     //FUNCIONES USUARIOS
     public function getPlantilla()
     {
         return view('plantilla');
@@ -45,6 +47,16 @@ class ViewAdminController extends Controller
     }
 
 
+     /*public function destroy(Request $request){
+        //Session::destroy(['usuario_id','usuario_nombre']);
+        $request->session()->forget(['usuario_id', 'usuario_nombre']);
+        return redirect()->route('usuario.login');
+    }*/
+
+
+
+    //FUNCIONES PARA ADIMINISTRADOR
+
      public function index()
      { $admin = Admin::all();
          return view('admin.selectAdmin', ["usuarios"=>$admin]);
@@ -77,15 +89,6 @@ class ViewAdminController extends Controller
     }
 
 
-
-
-
-     
-   
-    
-
-   
-
     public function store(Request $request)
     {
         //
@@ -104,11 +107,7 @@ class ViewAdminController extends Controller
         }
     }
 
-    /*public function destroy(Request $request){
-        //Session::destroy(['usuario_id','usuario_nombre']);
-        $request->session()->forget(['usuario_id', 'usuario_nombre']);
-        return redirect()->route('usuario.login');
-    }*/
+   
 
     
         public function destroy(string $id)
