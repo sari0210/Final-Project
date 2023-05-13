@@ -100,4 +100,14 @@ Route::delete('/logout',[ViewAdminController::class, 'destroy'])->name('cerrar_s
 Route::get('/acceso', [UsuariosController::class, 'iniciarSesion'])->name('inicio_sesion');
 Route::delete('/logout',[UsuariosController::class, 'destroy'])->name('cerrar_sesion');*/
 Route::get('/index', [ViewAdminController::class, 'getInicio'])->name('home');
+
+
+//RUTAS ADMIN
+Route::get('/usuarios', [ViewAdminController::class, 'index'])->name('usuarios');
+Route::get('/usuarios/create', [ViewAdminController::class, 'create']);
+Route::post('/usuarios', [ViewAdminController::class,'store']);
+Route::get('/usuarios/{id}', [ViewAdminController::class,'edit']);
+Route :: put("/updateUsuario/{id}" , [ViewAdminController:: class, "update"])->name('administrador');
+Route::delete('/usuarios/{id}', [ViewAdminController::class, 'destroy']);
+
 ?>

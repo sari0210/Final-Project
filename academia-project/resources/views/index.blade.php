@@ -41,8 +41,8 @@
           <a class="nav-link" href="{{ url('maestros') }}">Teacher</a>
         </li>
       </ul>
-      <form class="d-flex" action="{{ route('cerrar_sesion') }}" method="POST">
-            @method('DELETE')
+      <form class="d-flex" action="{{ route('/') }}" method="POST">
+            
             @csrf
           <button class="btn btn-danger" type="submit">Cerrar Sesion</button>
         </form>

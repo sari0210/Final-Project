@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="d-flex justify-content-center mt-5">
-            <form action="{{ route('home') }}" method="POST" id="login" class="w-50 p-3 my-3">
+            <form action="{{route('home')}}" method="POST" id="login" class="w-50 p-3 my-3">
                 @method('GET')
                 <!-- p-4: padding de 1.5rem 
                     1 rem = 16px
