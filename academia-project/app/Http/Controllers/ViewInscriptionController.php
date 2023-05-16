@@ -18,7 +18,7 @@ class ViewInscriptionController extends Controller
     public function index()
     {
         //obtener lista de inscripcion 
-       // $inscripciones = Inscription::all();
+       
         $inscripciones = Inscription::join('courses', 'inscriptions.course_id','courses.id')->join('students', 'inscriptions.student_id','students.id')->join('teachers', 'inscriptions.teacher_id','teachers.id')
         ->select('courses.course_name as curso','students.name as alumno','teachers.name as maestro','inscriptions.id as inscript_id', 'inscriptions.course_id','inscriptions.student_id', 'inscriptions.teacher_id', 'inscriptions.inscrip_date')->get();
         $inscrip_curso = Course::all();
@@ -28,25 +28,7 @@ class ViewInscriptionController extends Controller
         //"inscrip_curso" => $inscrip_curso , "inscrip_alumno" => $inscrip_alumno , "inscrip_maestro" => $inscrip_maestro 
     }
 
-    /*public function getcurso()
-    {
-        //
-        $inscrip_curso = Course::all();
-        return view ("inscription.createInscription", ["inscrip_curso" => $inscrip_curso]);
-    }
-    public function getalumno()
-    {
-        //
-        $inscrip_alumno = Student::all();
-        return view ("inscription.createInscription", ["inscrip_alumno" => $inscrip_alumno]);
-    }
-    public function getmaestro()
-    {
-        //
-        $inscrip_maestro = Teacher::all();
-        return view ("inscription.createInscription", ["inscrip_maestro" => $inscrip_maestro]);
-    }
-
+    /*
 
      * Show the form for creating a new resource.
      */

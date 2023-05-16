@@ -13,46 +13,7 @@ class ViewAdminController extends Controller
      * 
      */
 
-     //FUNCIONES USUARIOS
-
-/*     public function getPlantilla()
-    {
-        return view('plantilla');
-        //
-    }
-
-     public function getInicio()
-    {
-        return view('index');
-        //
-    }
-    
-    /**
-     * Show the form for creating a new resource.
      
-    public function iniciarSesion(Request $request){
-        $user=$request->post('user');
-        $pass=$request->post('pass');
-        $status=$request->post('status');
-
-        $admin = Admin::where("user","=",$user)->where("pass","=",$pass)->where("status","=",$status)->get();
-
-        foreach($admin as  $value){
-            session(['usuario_id'=>$value->id]);
-            session(['usuario_nombre' => $value->user]);
-            
-        return redirect()->route('home');
-        }
-
-        //
-    }
-
-
-     /*public function destroy(Request $request){
-        //Session::destroy(['usuario_id','usuario_nombre']);
-        $request->session()->forget(['usuario_id', 'usuario_nombre']);
-        return redirect()->route('usuario.login');
-    }*/
 
 
 

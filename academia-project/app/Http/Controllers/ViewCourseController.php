@@ -88,9 +88,7 @@ class ViewCourseController extends Controller
      */
     public function destroy($id)
     {
-        //eliminar
-        //$curso = Course::where("id","=",$id)->delete();
-        //return redirect("cursos");
+        
          
           try{
             $curso = Course::where("id","=",$id)->delete();

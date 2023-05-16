@@ -44,12 +44,7 @@ class ViewStudentController extends Controller
         $school_id= School::all();
         return view("student.createStudent", array("estudiantes"=>$pupil, "groups_id"=> $groups_id, "school_id"=>$school_id));
          
-         /*$pupil = Student::join('groups','students.groups_id','groups.id')->join('schools','students.school_id','schools.id')
-        ->select('groups.groups_name as groups','schools.school_name as schools','students.id as id_students'
-        ,'students.name','students.lastname','students.age','students.address',
-        'students.responsible_name','students.phone_number','students.groups_id',
-         'students.school_id','students.groups_id')->get();
-      return view("student.createStudent", array("estudiantes"=>$pupil));*/
+         
     }
 
     /**
@@ -75,12 +70,7 @@ class ViewStudentController extends Controller
         }else {
          return "error on save";
         }
-        /*$pupil = Student::join('groups','students.groups_id','groups.id')->join('schools','students.school_id','schools.id')
-        ->select('groups.groups_name as groups','schools.school_name as schools','students.id as id_students'
-        ,'students.name','students.lastname','students.age','students.address',
-        'students.responsible_name','students.phone_number','students.groups_id',
-         'students.school_id','students.groups_id')->get();
-      return view("student.createStudent", array("estudiantes"=>$pupil));*/
+        
     }
 
     /**
